@@ -1,0 +1,38 @@
+.compas-wrapper {
+    position: relative;
+    width: 124px;
+    height: 124px;
+}
+.E, .Circle, .N, .Polygon, .S, .W, .Vector {
+    position: absolute;
+}
+.Vector {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.Circle {
+    width: 75%;
+    top: 9.2%;
+    left: 11.7%;
+}
+.N {
+    top: 9.2%;
+    left: 46.6%;
+}
+.E {
+    top: 46.6%;
+    right: 9.2%;
+}
+.S {
+    bottom: 9.2%;
+    left: 46.6%;
+}
+.Polygon {
+    top: 1px;
+    left: 46.6%;
+}
+.W {
+    top: 46.6%;
+    left: 9.2%;
+}

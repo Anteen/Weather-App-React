@@ -1,0 +1,30 @@
+.forecast-hours__wrapper {
+    grid-column: 2/3;
+    grid-row: 2/2;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(145px);
+    -webkit-backdrop-filter: blur(145px);
+    border-radius: 15px;
+    padding: 14px 17px;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.forecast-hours__description-wrapper {
+    position: relative;
+    padding-bottom: 8px;
+}
+.forecast-hours__hours-wrapper {
+    flex: 1 1 auto;
+    padding-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.forecast-hours__description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #373C42;
+}

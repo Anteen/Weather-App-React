@@ -1,0 +1,35 @@
+.hours-wrapper:first-child > .hours-time {
+    /* visibility: none; */
+    position: relative;
+    max-width: 39.91px;
+    color: #373c4200;
+}
+.hours-wrapper:first-child > .hours-time::before {
+    content: "Now";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #373C42;
+}
+.hours-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.hours-time {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    color: #373C42;
+}
+.hours-degree {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.005em;
+    color: #373C42;
+}

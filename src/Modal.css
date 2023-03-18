@@ -1,0 +1,106 @@
+.modal {
+    height: 100%;
+    width: 100%;
+    background: rgba(78, 112, 123, 0.42);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none
+}
+.modal.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.modal__content-container {
+    width: 663px;
+    height: 324px;
+    border: solid;
+    background-color: rgba(78, 112, 123, 0);
+    position: relative;
+}
+.modal__content {
+    width: 621px;
+    /* height: 289px; */
+    /* position: absolute; */
+    left: 0;
+    bottom: 0;
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+.closing-button {
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    width: 21.33px;
+    height: 21.33px;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(78, 112, 123, 0);
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    left: 335px;
+    top: 35px;
+}
+.closing-svg {
+    width: 100%;
+    stroke: white;
+}
+.modal__accept-button {
+    width: 621px;
+    height: 41px;
+    background: #ABBFCE;
+    border-radius: 31px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.closing-svg:hover {
+    stroke: rgb(235, 235, 235);
+}
+.modal__accept-button:hover {
+    background: #3AA9FF;
+}
+.modal__input-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 621px;
+    height: 44px;
+    background: #F3F3F3;
+    border-radius: 16px;
+    /* border-radius: 16px 16px 0px 0px; */
+    border: none;
+    padding: 0 16px;
+    overflow: hidden;
+}
+.modal__input {
+    width: 100%;
+    border: none;
+    background: #F3F3F3;
+    height: 22px;
+    outline: none;
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    opacity: 0.6;
+}
+.modal__search-icon {
+    opacity: 0.5;
+}

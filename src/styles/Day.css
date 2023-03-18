@@ -1,0 +1,35 @@
+.day-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    gap: 10px;
+    position: relative;
+}
+.day-wrapper__left-side,
+.day-wrapper__right-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+}
+.day-wrapper__line {
+    display: block;
+    height: 4px;
+    mix-blend-mode: overlay;
+}
+.day-wrapper__hr {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #424242;
+    opacity: 0.5;
+    height: 0.2px;
+    border: none;
+    margin: 0;
+}
+
