@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react'
 import './App.css';
-import Container from './components/Container.js';
+import Container from './components/ContainerWithData.js';
 import Modal from './Modal';
 import formatedWeatherData from './services/api';
-import getWeatherData from './services/api';
+import Preloader from './components/Preloader';
 
 
 function App() {
@@ -13,10 +13,33 @@ function App() {
     console.log(searchData)
   }
 
+  const [query, setQuery] = useState({q: 'London'})
+  const [units, setUnits] = useState('metric')
+  const [weather, setWeather] = useState(null)
+
+  const [loading, setLoading] = useState(true)
+  
+  useEffect(() => {
+      const fetchWeather = async () => {
+         await formatedWeatherData({...query, units})
+         .then(data => {
+            setWeather(data)
+        })
+        .finally(() => setLoading(false))
+      }
+      fetchWeather()
+    }, [query, units])
+
+    if (loading) {
+      return (
+         <Preloader />
+      )
+  }
+
   return (
     <div className="App">
-          <Container />
-          <Modal open={active} onClose={() => setActive(false)} onSearchChange={handleOnSearchChange}/>
+          <Container setQuery={setQuery} weather={weather} openModal={setActive} />
+          <Modal open={active} onClose={() => setActive(false)} onSearchChange={handleOnSearchChange} setQuery={setQuery} units={units} setUnits={setUnits}/>
     </div>
   );
 }

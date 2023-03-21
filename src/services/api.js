@@ -22,9 +22,9 @@ const formatCurrentWeather = (data) => {
         wind: {speed, deg}
     } = data
 
-    const {main: details} = weather[0]
+    const {main: details, icon} = weather[0]
 
-    return {lat, lon, temp, feels_like, humidity, visibility, name, dt, country, sunrise, details, speed, deg}
+    return {lat, lon, temp, feels_like, humidity, visibility, name, dt, country, sunrise, details, icon, speed, deg}
 }
 
     const formatForecastWeather = (data) => {
@@ -35,6 +35,7 @@ const formatCurrentWeather = (data) => {
                 tempMin: day.temp.min,
                 tempMax: day.temp.max,
                 temp: day.temp.day,
+                icon: day.weather[0].icon
             }
         })
         hourly = hourly.slice(0,10).map(day => {
@@ -42,7 +43,8 @@ const formatCurrentWeather = (data) => {
                 title: formatToLocalTime(day.dt, timezone, 'hh:mm a'),
                 temp: day.temp,
                 uv: day.uvi,
-                dewPoint: day.dew_point
+                dewPoint: day.dew_point,
+                icon: day.weather[0].icon
             }
         })
 
@@ -65,6 +67,10 @@ const formatedWeatherData = async (searchParams) => {
     return {...formatedCurrentWeather, ...formatedForecastWeather}
 }
 
+    const iconFromUrl = (code) => `https://openweathermap.org/img/wn/${code}.png`
+
     const formatToLocalTime = (secs, zone, format = "cccc, dd LLL yyyy | Local Time: 'hh:mm a"
     ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format)
 export default formatedWeatherData
+
+export {iconFromUrl}

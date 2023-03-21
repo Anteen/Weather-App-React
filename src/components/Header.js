@@ -4,12 +4,12 @@ const Header = ({weather, items}) => {
     const [weatherArray] = items
 
     return (
-        <div className="header">
-            <h2 className="header-city">{weather.name}</h2>
-            <h1 className="header-degree">{Math.round(weather.temp)}°</h1>
-            <h3 className="header-weather">{weather.details}</h3>
+        <header className="header">
+            <p className="header-city">{weather.name}</p>
+            <p className="header-degree">{Math.round(weather.temp)}°</p>
+            <p className="header-weather">{weather.details}</p>
             <p className="header-day-and-night">H:{Math.round(weatherArray.tempMax)}°  L:{Math.round(weatherArray.tempMin)}°</p>
-        </div>
+        </header>
     )
 }
 

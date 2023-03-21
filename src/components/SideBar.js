@@ -1,16 +1,13 @@
-import {useState} from 'react'
 import '../styles/SideBar.css'
 import Search from './Search'
-import Modal from '../Modal'
-import SavedLocation from './Saved-location'
+import SavedLocation from './SavedLocation'
 
-const SideBar = ({weather, items}) => {
-
+const SideBar = ({weather, items, activate, openModal, setQuery, unactivate}) => {
     return (
-        <div className="sidebar-wrapper">
-            <Search />
-            <SavedLocation weather={weather} items={items}/>
-        </div>
+        <nav className={activate}>
+            <Search openModal={openModal}/>
+            <SavedLocation  setQuery={setQuery} weather={weather} items={items} unactivate={unactivate}/>
+        </nav>
     )
 }
 
