@@ -74,7 +74,7 @@
         height: 100%;
     }
 } 
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 605px) {
     .main-info {
         padding: 25px 0;
     }

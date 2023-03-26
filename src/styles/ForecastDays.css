@@ -32,7 +32,7 @@
         height: 100%;
     }
 }
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 605px) {
     .forecast-days__wrapper {
         grid-column: 1 / 1;
         height: 100%;

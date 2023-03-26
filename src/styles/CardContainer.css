@@ -15,7 +15,7 @@
         grid-template-rows: repeat(3, 1fr);
     }
 }
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 605px) {
     .card-container {
         grid-column: 1/1;
         grid-row: 4/4;

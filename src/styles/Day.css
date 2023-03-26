@@ -60,7 +60,7 @@
         flex: 1 1 auto;
     }
 }
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 605px) {
     .day-title, .day-wrapper__day-temp {
         font-size: 22px;
     }

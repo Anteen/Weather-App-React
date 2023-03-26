@@ -36,7 +36,7 @@
     top: 46.6%;
     left: 9.2%;
 }
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 605px) {
     .compas-wrapper {
         position: relative;
         width: 150px;

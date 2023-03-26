@@ -37,7 +37,7 @@
     text-align: center;
     color: #FFFFFF;
 }
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 605px) {
     .header-city {
         font-size: 37px;
     }

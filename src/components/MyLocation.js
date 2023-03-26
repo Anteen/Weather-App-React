@@ -2,9 +2,8 @@ import '../styles/SavedLocation.css'
 import '../styles/Container.css'
 import VideoBackground from './VideoBackground'
 
-
-const SavedLocation = ({weather: {name, temp, details, dt}, items, setQuery, unactivate}) => {
-    const [weatherArray] = items
+const MyLocation = ({localWeather: {name, temp, details}, localItems, setQuery, unactivate}) => {        
+    const [localWeatherArray] = localItems
 
     const currentLocationClick = () => {
         if (navigator.geolocation) {
@@ -20,18 +19,21 @@ const SavedLocation = ({weather: {name, temp, details, dt}, items, setQuery, una
         }
         unactivate('sidebar-wrapper')
     }
+    
+    // console.log(name)
     return (
         <>
         <div onClick={currentLocationClick} className="location-container">
             <VideoBackground description={details}/>
             <div className='location-wrapper'>
                 <div className='location-description'>
-                    <h2 className='location-title'>{name}</h2>
+                    <h2 className='location-title'>My location</h2>
+                    <p className='location-city'>{name}</p>
                     <p className='location-weather'>{details}</p>
                 </div>
                 <div className='location-degreeses'>
                     <h2 className='location-degree-title'>{Math.round(temp)}°</h2>
-                    <h2 className='location-degree-subtitle'>H:{Math.round(weatherArray.tempMax)}°  L:{Math.round(weatherArray.tempMin)}°</h2>
+                    <h2 className='location-degree-subtitle'>H:{Math.round(localWeatherArray.tempMax)}°  L:{Math.round(localWeatherArray.tempMin)}°</h2>
                 </div>
             </div>
         </div>
@@ -39,5 +41,5 @@ const SavedLocation = ({weather: {name, temp, details, dt}, items, setQuery, una
     )  
 }
 
-export default SavedLocation
+export default MyLocation
 

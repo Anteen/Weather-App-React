@@ -33,7 +33,7 @@
     letter-spacing: 0.005em;
     color: #373C42;
 }
-@media screen and (max-width: 543px) {
+@media screen and (max-width: 605px) {
     .hours-time {
         font-size: 17px;
     }

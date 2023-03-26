@@ -9,7 +9,7 @@ import VideoBackground from './VideoBackground'
 import burgerButton from '../assets/images/align-justify-svgrepo-com.svg'
 
 
-const Container = ({weather, openModal, setQuery}) => {
+const Container = ({weather, localWeather, openModal, setQuery}) => {
     
     const [activeSidebar, setActiveSidebar] = useState('sidebar-wrapper')
     const change = () => {
@@ -32,7 +32,7 @@ const Container = ({weather, openModal, setQuery}) => {
                         <CardContainer weather={weather}/>
                     </div>
                 </main>
-                <SideBar setQuery={setQuery} openModal={openModal} weather={weather} items={weather.daily} activate={activeSidebar} unactivate={setActiveSidebar}/>
+                <SideBar setQuery={setQuery} openModal={openModal} weather={weather} localWeather={localWeather} localItems={localWeather.daily} items={weather.daily} activate={activeSidebar} unactivate={setActiveSidebar}/>
             </>
         )}
         </div>

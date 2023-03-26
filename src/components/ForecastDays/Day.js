@@ -13,9 +13,9 @@ const Day = (items) => {
                     <img src={iconFromUrl(items.icon)} className='weather-app-icons' />
                 </div>
                 <div className="day-wrapper__right-side">
-                    {/* <p className="day-wrapper__night-temp"></p> */}
+                    <p className="day-wrapper__night-temp">{Math.round(items.tempNight)}°</p>
                     <img src={Line} className="day-wrapper__line"></img>
-                    <p className="day-wrapper__day-temp">{Math.round(items.temp)}°</p>
+                    <p className="day-wrapper__day-temp">{Math.round(items.tempDay)}°</p>
                 </div>
             </div>
         )
