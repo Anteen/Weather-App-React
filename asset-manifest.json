@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/Weather-App-React/static/css/main.90f2b7a8.css",
+    "main.js": "/Weather-App-React/static/js/main.e8ea3ce6.js",
+    "static/media/clouds-16495.mp4": "/Weather-App-React/static/media/clouds-16495.61af9e152e42459eb59d.mp4",
+    "static/media/white-clouds-2099.mp4": "/Weather-App-React/static/media/white-clouds-2099.e3d2df473b72c0fec6b1.mp4",
+    "static/media/clouds-1154.mp4": "/Weather-App-React/static/media/clouds-1154.d7a606588ebdf19fff02.mp4",
+    "static/media/snow-1387.mp4": "/Weather-App-React/static/media/snow-1387.a9737741511a100c6687.mp4",
+    "static/media/rain-28236.mp4": "/Weather-App-React/static/media/rain-28236.3727638e43f2a1664b1c.mp4",
+    "static/media/lightning-88492.mp4": "/Weather-App-React/static/media/lightning-88492.70d76bf271bb3fd0769a.mp4",
+    "static/media/compas.webp": "/Weather-App-React/static/media/compas.2ae7b13c970ebb50389e.webp",
+    "static/media/Vector.svg": "/Weather-App-React/static/media/Vector.0f12eed1c319b5cc896a614982a1d24e.svg",
+    "static/media/sunrise-vector.webp": "/Weather-App-React/static/media/sunrise-vector.e1dd2fcfbf53ead8fa88.webp",
+    "index.html": "/Weather-App-React/index.html",
+    "static/media/rainbow-line.webp": "/Weather-App-React/static/media/rainbow-line.14167b66bbbeaa272d60.webp",
+    "static/media/align-justify-svgrepo-com.svg": "/Weather-App-React/static/media/align-justify-svgrepo-com.765b14ec6dda704c1a39a30cfabbd675.svg",
+    "static/media/eye.webp": "/Weather-App-React/static/media/eye.21c54490516eb3766120.webp",
+    "static/media/x.svg": "/Weather-App-React/static/media/x.9bcc658711969aa87c65565a77d88bf2.svg",
+    "static/media/humidity.webp": "/Weather-App-React/static/media/humidity.5d0863649ee965bb784f.webp",
+    "static/media/ellipse.webp": "/Weather-App-React/static/media/ellipse.11ba854c82f755164320.webp",
+    "static/media/dn-line.webp": "/Weather-App-React/static/media/dn-line.40d54fd2bbc5c77c136f.webp",
+    "static/media/check.svg": "/Weather-App-React/static/media/check.761e7637f6b82d3a014073ce62f960ef.svg",
+    "static/media/wind.webp": "/Weather-App-React/static/media/wind.d361546fca3a488d9db2.webp",
+    "static/media/sun-max.webp": "/Weather-App-React/static/media/sun-max.9be2fc529c89abff326c.webp",
+    "static/media/thermometer.webp": "/Weather-App-React/static/media/thermometer.0f16e34390fe347e5bd4.webp",
+    "static/media/sunrise.webp": "/Weather-App-React/static/media/sunrise.24cfce02800d0619b57e.webp",
+    "main.90f2b7a8.css.map": "/Weather-App-React/static/css/main.90f2b7a8.css.map",
+    "main.e8ea3ce6.js.map": "/Weather-App-React/static/js/main.e8ea3ce6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.90f2b7a8.css",
+    "static/js/main.e8ea3ce6.js"
+  ]
+}
