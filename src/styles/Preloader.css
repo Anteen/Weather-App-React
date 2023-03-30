@@ -1,0 +1,65 @@
+.grid {
+    height: 100%; 
+    position: relative;
+    z-index: 1000;
+}
+  
+  .grid {
+    display: grid;
+    place-items: center; }
+  
+  .cup {
+    background-color: #93b0a1;
+    transform: translateY(16.66667vh);
+    position: relative;
+    display: grid;
+    border-radius: 5.55556vh 5.55556vh 16.66667vh 16.66667vh;
+    height: 25vh;
+    width: 33.33333vh; }
+    .cup__handler {
+      background-color: #eff3f1;
+      transform: translate(62.5%, -18.75%);
+      position: absolute;
+      place-self: center end;
+      border-radius: 11.11111vh 5.55556vh 11.11111vh 6.94444vh;
+      border: 1.38889vh solid #93b0a1;
+      border-left-width: 2.77778vh;
+      height: 13.88889vh;
+      width: 13.88889vh; }
+    .cup__steam {
+      background-color: white;
+      transform: translateY(-25vh);
+      position: absolute;
+      border-radius: 13.88889vh 6.94444vh;
+      height: 16.66667vh;
+      place-self: start center;
+      width: 11.11111vh; }
+    .cup__steam-flow {
+      background-color: #eff3f1;
+      animation: steam-flow 1s linear infinite;
+      height: 2.77778vh;
+      top: 0; }
+      .cup__steam-flow, .cup__steam-flow::before, .cup__steam-flow::after {
+        position: absolute;
+        right: 0;
+        left: 0; }
+      .cup__steam-flow::before, .cup__steam-flow::after {
+        content: '';
+        height: 2.77778vh; }
+      .cup__steam-flow::before {
+        transform: translateY(100%);
+        border-radius: 1.38889vh 1.38889vh 0vh 0vh;
+        bottom: 0;
+        box-shadow: 0 -1.38889vh 0 0 #eff3f1; }
+      .cup__steam-flow::after {
+        transform: translateY(-100%);
+        border-radius: 0vh 0vh 1.38889vh 1.38889vh;
+        top: 0;
+        box-shadow: 0 1.38889vh 0 0 #eff3f1; }
+  
+  @keyframes steam-flow {
+    from {
+      transform: translateY(19.44444vh); }
+    to {
+      transform: translateY(-2.77778vh); } }
+  

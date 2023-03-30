@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    display: none
+    display: none;
 }
 .modal.active {
     display: flex;
@@ -103,4 +103,15 @@
 }
 .modal__search-icon {
     opacity: 0.5;
+}
+@media screen and (max-width: 730px) {
+    .modal.active {
+        justify-content: flex-start;
+    }
+    .closing-button {
+        display: none;
+    }
+    .modal__content, .modal__input-container, .modal__accept-button {
+        width: 100%;
+    }
 }

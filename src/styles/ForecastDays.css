@@ -1,0 +1,40 @@
+.forecast-days__wrapper {
+    /* flex-grow: 1;
+    flex-basis: 50%; */
+    grid-row: 2 / 4;
+    /* max-width: 535px; */
+    width: 100%;
+    height: 479px;
+    /* max-height: 706px; */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(145px);
+    -webkit-backdrop-filter: blur(145px);
+    border-radius: 15px;
+    padding: 10px 13px;
+    overflow: hidden;
+}
+.forecast-days-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #424242;
+    text-align: center;
+}
+@media screen and (max-width: 1410px) {
+    .forecast-days__wrapper {
+        justify-self: center;
+    }
+}
+@media screen and (max-width: 862px) {
+    .forecast-days__wrapper {
+        grid-row: 3 / 4;
+        height: 100%;
+    }
+}
+@media screen and (max-width: 605px) {
+    .forecast-days__wrapper {
+        grid-column: 1 / 1;
+        height: 100%;
+    }
+}

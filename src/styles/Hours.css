@@ -21,15 +21,26 @@
 .hours-time {
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 20px;
     color: #373C42;
 }
 .hours-degree {
     font-style: normal;
     font-weight: 500;
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 18px;
+    line-height: 20px;
     letter-spacing: 0.005em;
     color: #373C42;
+}
+@media screen and (max-width: 605px) {
+    .hours-time {
+        font-size: 17px;
+    }
+    .hours-degree {
+        font-size: 22px;
+    }
+    .hours-wrapper {
+        gap: 10px;
+    }
 }
