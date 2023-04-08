@@ -38,6 +38,12 @@
 .search-icon {
     fill: rgba(0, 0, 0, 0.6) !important;
 }
+.locations-container {
+    width: 95%;
+    margin: 25px 20px;
+    height: auto;
+    overflow-y: scroll;
+}
 @media screen and (max-width: 1410px) {
     .sidebar-wrapper {
         display: none;

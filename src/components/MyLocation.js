@@ -2,8 +2,8 @@ import '../styles/SavedLocation.css'
 import '../styles/Container.css'
 import VideoBackground from './VideoBackground'
 
-const MyLocation = ({localWeather: {name, temp, details}, localItems, setQuery, unactivate}) => {        
-    const [localWeatherArray] = localItems
+const MyLocation = ({localWeather: {name, temp, details, daily}, setQuery, unactivate}) => {        
+    const [localWeatherArray] = daily
 
     const currentLocationClick = () => {
         if (navigator.geolocation) {
@@ -19,8 +19,7 @@ const MyLocation = ({localWeather: {name, temp, details}, localItems, setQuery, 
         }
         unactivate('sidebar-wrapper')
     }
-    
-    // console.log(name)
+
     return (
         <>
         <div onClick={currentLocationClick} className="location-container">

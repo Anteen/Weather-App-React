@@ -3,21 +3,15 @@ import '../styles/Container.css'
 import VideoBackground from './VideoBackground'
 
 
-const SavedLocation = ({weather: {name, temp, details, dt}, items, setQuery, unactivate}) => {
-    const [weatherArray] = items
+const SavedLocation = ({loc: {name, temp, details, lat, lon, daily}, setQuery, unactivate}) => {
+    
+    const [weatherArray] = daily
 
-    const currentLocationClick = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                let lat = position.coords.latitude
-                let lon = position.coords.longitude
-                
-                setQuery({
-                    lat,
-                    lon
-                })
-            })
-        }
+    const currentLocationClick = () => {                
+        setQuery({
+            lat: lat,
+            lon: lon,
+        })
         unactivate('sidebar-wrapper')
     }
     return (

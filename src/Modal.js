@@ -1,30 +1,29 @@
-import { useEffect, useState } from 'react'
 import React from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { Context } from './context'
 import reactDom from 'react-dom'
 import './Modal.css'
-import ModalItems from './components/ModalItems'
 import './styles/ModalItems.css'
 import X from './assets/images/x.svg'
-import search from './assets/images/Vector.svg'
 import {AsyncPaginate}  from 'react-select-async-paginate'
-import { GEO_API_URL, geoApi, NINJA_API_URL, ninjaApi } from './services/api'
+import { GEO_API_URL, geoApi } from './services/api'
 
 const modalRootElement = document.querySelector("#modal")
 
-const Modal = ({open, onClose, onSearchChange, setQuery, units, setUnits} ) => {
-    // console.log(onSearchChange)
+const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuery, setSavedQuery, setSavedLocationArr, savedLocationArr} ) => {
+    
     const element = document.createElement("div")
 
-    const [city, setCity] = useState('')
+
+    const {change, adaptiveChange, addSavedCity} = useContext(Context)
 
     const handleOnChange = (searchData) => {
         setCity(searchData)
-        onSearchChange(searchData)
+        console.log(searchData)
     }
-    
+
     const loadCitiesList = (inputValue) => {
         return fetch(`${GEO_API_URL}/cities?minPopulation=400000&namePrefix=${inputValue}`, geoApi)
-        // return fetch(`${NINJA_API_URL}?name=${inputValue}`, ninjaApi)
         .then(response => response.json())
         .then(response => {
             return {
@@ -37,19 +36,37 @@ const Modal = ({open, onClose, onSearchChange, setQuery, units, setUnits} ) => {
                     }
                 })
             }
-            console.log(response)
         })
         .catch(err => console.error(err));
     }
+    console.log(savedLocationArr)
+    
+    const saveCity = () => {
+        let confirmCity = window.confirm("add city to 'Saved'?") 
+            if (confirmCity) {
+                const {value, label, ...coords} = city
+                setSavedLocationArr([...savedLocationArr, coords])
+
+                setQuery({
+                    lat: city.lat,
+                    lon: city.lon,
+                })
+                } else {
+                    setQuery({
+                        lat: city.lat,
+                        lon: city.lon,
+                    })
+                }
+            }
+            // console.log(savedLocationArr)
+    // console.log(weather)
     
     
     const handleOnClick = () => {
         if (city !== '') {
-            setQuery({
-                lat: city.lat,
-                lon: city.lon,
-            })
+            saveCity()
             onClose()
+            adaptiveChange(activeSidebar)
         } 
     }
     useEffect(() => {
@@ -86,13 +103,3 @@ const Modal = ({open, onClose, onSearchChange, setQuery, units, setUnits} ) => {
 }
 
 export default Modal
-//onClick={() => setActive(false)}
-// value={city} onChange={(e) => setCity(e.target.value)}
-
-// <div className='modal__input-container'>
-// <img src={search} className='modal__search-icon'/>
-// <input className='modal__input' type='text' value={city} onChange={(e) => setCity(e.target.value)}  required/>
-// </div>
-// {city && <div className="modal-items__container">
-// <ModalItems />
-// </div>}

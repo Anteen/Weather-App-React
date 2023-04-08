@@ -1,4 +1,5 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
+import { Context } from '../context'
 import '../styles/Container.css'
 import SideBar from './SideBar'
 import Header from './Header'
@@ -9,16 +10,13 @@ import VideoBackground from './VideoBackground'
 import burgerButton from '../assets/images/align-justify-svgrepo-com.svg'
 
 
-const Container = ({weather, localWeather, openModal, setQuery}) => {
+const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSidebar, localQuery, savedWeather, savedQuery, savedLocationArr}) => {
     
-    const [activeSidebar, setActiveSidebar] = useState('sidebar-wrapper')
-    const change = () => {
-        setActiveSidebar('sidebar-wrapper sidebar-wrapper_active')
-    }
-    
+    const {change, adaptiveChange} = useContext(Context)
+
     return (
         <div className="Container">
-            <button className='button-open-sidebar' onClick={change}>
+            <button className='button-open-sidebar' onClick={() => change(activeSidebar)}>
                 <img src={burgerButton} className='button-open-sidebar__svg'/>
             </button>
         {weather && (
@@ -32,11 +30,12 @@ const Container = ({weather, localWeather, openModal, setQuery}) => {
                         <CardContainer weather={weather}/>
                     </div>
                 </main>
-                <SideBar setQuery={setQuery} openModal={openModal} weather={weather} localWeather={localWeather} localItems={localWeather.daily} items={weather.daily} activate={activeSidebar} unactivate={setActiveSidebar}/>
+                <SideBar localQuery={localQuery} savedQuery={savedQuery} setQuery={setQuery} openModal={openModal} weather={weather} localWeather={localWeather} savedWeather={savedWeather}  items={weather.daily}   activeSideBar={activeSidebar} unactivate={() => adaptiveChange(activeSidebar)} savedLocationArr={savedLocationArr}/>
             </>
         )}
         </div>
     )
 }
 
-export default Container
+
+export default ContainerWithData
