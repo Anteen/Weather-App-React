@@ -1,30 +1,43 @@
 import {useEffect, useState} from 'react'
+import { Context } from './context';
 import './App.css';
-import Container from './components/ContainerWithData.js';
+import ContainerWithData from './components/ContainerWithData.js';
 import Modal from './Modal';
 import formatedWeatherData from './services/api';
 import Preloader from './components/Preloader';
 
-
 function App() {
 
   const [active, setActive] = useState(false)
-  const handleOnSearchChange = (searchData) => {
-    // console.log(searchData)
-  }
+  const [activeSidebar, setActiveSidebar] = useState('sidebar-wrapper')
 
-  const [query, setQuery] = useState({lat: 48.85, lon: 2.35})
+  const change = () => {
+    setActiveSidebar('sidebar-wrapper sidebar-wrapper_active')
+  }
+  const adaptiveChange = () => {
+    if (activeSidebar === 'sidebar-wrapper sidebar-wrapper_active') {
+      setActiveSidebar('sidebar-wrapper')
+    }
+  }
+ 
+  let defaultCity = {lat: 48.85, lon: 2.35}
+
+  const [query, setQuery] = useState(defaultCity)
   const [localQuery, setLocalQuery] = useState({lat: 0, lon: 0})
+  const [savedQuery, setSavedQuery] = useState({lat: 0, lon: 0})
   const [units, setUnits] = useState('metric')
   const [weather, setWeather] = useState(null)
+  const [savedLocationArr, setSavedLocationArr] = useState([])
+  const [savedWeather, setSavedWeather] = useState([])
+  const [city, setCity] = useState('')
   const [localWeather, setlocalWeather] = useState(null)
   const [loading, setLoading] = useState(true)
   
   useEffect(() => {
     if (localQuery.lat === 0 & localQuery.lon === 0) {
       navigator.geolocation.getCurrentPosition((position) => {
-          let lat = position.coords.latitude
-          let lon = position.coords.longitude
+          const lat = position.coords.latitude
+          const lon = position.coords.longitude
           
           setLocalQuery({
               lat,
@@ -33,7 +46,6 @@ function App() {
       })
     } 
   })
-
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -46,7 +58,6 @@ function App() {
     fetchWeather()  
   }, [localQuery, units])
 
-  // let [localDaily] = localWeather.daily 
   useEffect(() => {
       const fetchWeather = async () => {
          await formatedWeatherData({...query, units})
@@ -57,18 +68,40 @@ function App() {
       }
       fetchWeather()
     }, [query, units])
+    
+    useEffect(() => {
+      savedLocationArr.forEach(coords => {
+      setSavedQuery(coords)
+      const fetchWeather = async () => {
+           await formatedWeatherData({...savedQuery, units})
+           .then(data => {
+            setSavedWeather([...savedWeather, data])
+          })
+          .finally(() => setLoading(false))
+        }
+        fetchWeather()
+      })
+    }, [savedQuery, units, savedLocationArr])
 
+
+    // console.log(savedLocationArr)
+    // console.log(savedWeather)
+    // console.log(savedQuery)
+    
     if (loading) {
       return (
-         <Preloader />
-      )
+        <Preloader />
+        )
   }
-  // console.log(localWeather)
   return (
-    <div className="App">
-          <Container setQuery={setQuery} weather={weather} openModal={setActive} localWeather={localWeather}/>
-          <Modal open={active} onClose={() => setActive(false)} onSearchChange={handleOnSearchChange} setQuery={setQuery} units={units} setUnits={setUnits}/>
-    </div>
+    <Context.Provider value={{
+      change, adaptiveChange,
+    }}>
+      <div className="App">
+            <ContainerWithData setQuery={setQuery} savedWeather={savedWeather} weather={weather} openModal={setActive} localWeather={localWeather} activeSidebar={activeSidebar} localQuery={localQuery} savedQuery={savedQuery} savedLocationArr={savedLocationArr}/>
+            <Modal open={active} onClose={() => setActive(false)} setQuery={setQuery} activeSidebar={activeSidebar} city={city} setCity={setCity} savedQuery={savedQuery} setSavedQuery={setSavedQuery} savedLocationArr={savedLocationArr} setSavedLocationArr={setSavedLocationArr}/>
+      </div>
+    </Context.Provider>
   );
 }
 
