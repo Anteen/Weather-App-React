@@ -3,7 +3,7 @@ import '../styles/Container.css'
 import VideoBackground from './VideoBackground'
 
 
-const SavedLocation = ({loc: {name, temp, details, lat, lon, daily}, setQuery, unactivate}) => {
+const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQuery, unactivate}) => {
     
     const [weatherArray] = daily
 

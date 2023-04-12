@@ -11,9 +11,8 @@ import burgerButton from '../assets/images/align-justify-svgrepo-com.svg'
 
 
 const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSidebar, localQuery, savedWeather, savedQuery, savedLocationArr}) => {
-    
+        
     const {change, adaptiveChange} = useContext(Context)
-
     return (
         <div className="Container">
             <button className='button-open-sidebar' onClick={() => change(activeSidebar)}>

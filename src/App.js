@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useMemo, Component, useLayoutEffect} from 'react'
 import { Context } from './context';
 import './App.css';
 import ContainerWithData from './components/ContainerWithData.js';
@@ -22,19 +22,18 @@ function App() {
  
   let defaultCity = {lat: 48.85, lon: 2.35}
 
-  const [query, setQuery] = useState(defaultCity)
-  const [localQuery, setLocalQuery] = useState({lat: 0, lon: 0})
-  const [savedQuery, setSavedQuery] = useState({lat: 0, lon: 0})
   const [units, setUnits] = useState('metric')
-  const [weather, setWeather] = useState(null)
-  const [savedLocationArr, setSavedLocationArr] = useState([])
-  const [savedWeather, setSavedWeather] = useState([])
+  const [localQuery, setLocalQuery] = useState(null)
+  const [query, setQuery] = useState(defaultCity)
+  const [localWeather, setlocalWeather] = useState({})
   const [city, setCity] = useState('')
-  const [localWeather, setlocalWeather] = useState(null)
+  const [weather, setWeather] = useState(null)
+  const [savedQuery, setSavedQuery] = useState(null)
+  const [savedLocationArr, setSavedLocationArr] = useState(JSON.parse(localStorage.getItem('savedLocationArr')) || [])
+  const [savedWeather, setSavedWeather] = useState([])
   const [loading, setLoading] = useState(true)
   
-  useEffect(() => {
-    if (localQuery.lat === 0 & localQuery.lon === 0) {
+  useEffect(() => {  
       navigator.geolocation.getCurrentPosition((position) => {
           const lat = position.coords.latitude
           const lon = position.coords.longitude
@@ -44,49 +43,46 @@ function App() {
               lon
           })
       })
-    } 
-  })
+  }, [])
+
+  // console.log(localQuery)
 
   useEffect(() => {
-    const fetchWeather = async () => {
-       await formatedWeatherData({...localQuery, units})
-       .then(data => {
-            setlocalWeather(data)
-      })
-      .finally(() => setLoading(false))
+    if (localQuery !== null) {
+      const fetchWeather = async () => {
+      const data = await formatedWeatherData({...localQuery, units})
+        setlocalWeather(data)
+        setLoading(false)
+        setQuery(localQuery)
+      }
+      fetchWeather()  
     }
-    fetchWeather()  
-  }, [localQuery, units])
+  }, [localQuery])
+
+  // console.log(localWeather)
+
 
   useEffect(() => {
       const fetchWeather = async () => {
-         await formatedWeatherData({...query, units})
-         .then(data => {
-            setWeather(data)
-        })
-        .finally(() => setLoading(false))
+      const data = await formatedWeatherData({...query, units})
+        setWeather(data)
+        setLoading(false)
       }
       fetchWeather()
-    }, [query, units])
-    
-    useEffect(() => {
-      savedLocationArr.forEach(coords => {
-      setSavedQuery(coords)
+    }, [query])
+
+    useEffect (() =>  {
       const fetchWeather = async () => {
-           await formatedWeatherData({...savedQuery, units})
-           .then(data => {
-            setSavedWeather([...savedWeather, data])
-          })
-          .finally(() => setLoading(false))
+        const tempDataArr = []
+        for (let i=0; i<savedLocationArr.length; i++) {
+          const data = await formatedWeatherData({...savedLocationArr[i], units})
+          tempDataArr.push(data)
         }
-        fetchWeather()
-      })
-    }, [savedQuery, units, savedLocationArr])
-
-
-    // console.log(savedLocationArr)
-    // console.log(savedWeather)
-    // console.log(savedQuery)
+        setSavedWeather([...savedWeather, ...tempDataArr])
+        setLoading(false)
+      }
+      fetchWeather()
+    }, [savedLocationArr])
     
     if (loading) {
       return (

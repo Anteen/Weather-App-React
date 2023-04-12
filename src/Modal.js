@@ -19,7 +19,7 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuer
 
     const handleOnChange = (searchData) => {
         setCity(searchData)
-        console.log(searchData)
+        // console.log(searchData)
     }
 
     const loadCitiesList = (inputValue) => {
@@ -39,7 +39,6 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuer
         })
         .catch(err => console.error(err));
     }
-    console.log(savedLocationArr)
     
     const saveCity = () => {
         let confirmCity = window.confirm("add city to 'Saved'?") 
