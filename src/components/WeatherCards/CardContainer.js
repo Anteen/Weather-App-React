@@ -1,11 +1,11 @@
-import '../../styles/CardContainer.css'
-import Cards from './Card'
+import '../../styles/CardContainer.css';
+import Cards from './Card';
 
-const CardContainer = ({weather}) => {
+const CardContainer = ({ weather }) => {
     return (
         <div className="card-container">
-            <Cards weather={weather}/>
+            <Cards weather={weather} />
         </div>
-    )
-}
-export default CardContainer
+    );
+};
+export default CardContainer;

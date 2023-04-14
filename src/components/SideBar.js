@@ -3,17 +3,29 @@ import Search from './Search'
 import MyLocation from './MyLocation'
 import SavedLocations from './SavedLocations'
 
-const SideBar = ({localWeather, activeSideBar, openModal, setQuery, unactivate, localQuery, savedWeather, savedQuery, savedLocationArr}) => {
-
+const SideBar = ({localWeather, activeSideBar, openModal, setQuery, unactivateSidebar, savedWeather}) => {
+    
     return (
         <nav className={activeSideBar}>
-            <Search openModal={openModal}/>
-            <div className='locations-container'>
-                {/* {localQuery !== null && <MyLocation  setQuery={setQuery} localWeather={localWeather} unactivate={unactivate}/> } */}
-                {savedWeather && <SavedLocations setQuery={setQuery} savedWeather={savedWeather} unactivate={unactivate}/>} 
+            <Search openModal={openModal} />
+            <div className="locations-container">
+                {localWeather.name && (
+                    <MyLocation
+                        setQuery={setQuery}
+                        localWeather={localWeather}
+                        unactivateSidebar={unactivateSidebar}
+                    />
+                )}
+                {savedWeather && (
+                    <SavedLocations
+                        setQuery={setQuery}
+                        savedWeather={savedWeather}
+                        unactivateSidebar={unactivateSidebar}
+                    />
+                )}
             </div>
         </nav>
-    )
+    );
 }
 
 export default SideBar

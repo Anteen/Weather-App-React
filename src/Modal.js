@@ -1,16 +1,16 @@
 import React from 'react'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { Context } from './context'
 import reactDom from 'react-dom'
 import './Modal.css'
 import './styles/ModalItems.css'
-import X from './assets/images/x.svg'
-import {AsyncPaginate}  from 'react-select-async-paginate'
+import ExitButton from './assets/images/exit-button.svg'
+import { AsyncPaginate }  from 'react-select-async-paginate'
 import { GEO_API_URL, geoApi } from './services/api'
 
 const modalRootElement = document.querySelector("#modal")
 
-const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuery, setSavedQuery, setSavedLocationArr, savedLocationArr} ) => {
+const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, setSavedLocationCoords, savedLocationCoords} ) => {
     
     const element = document.createElement("div")
 
@@ -19,7 +19,6 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuer
 
     const handleOnChange = (searchData) => {
         setCity(searchData)
-        // console.log(searchData)
     }
 
     const loadCitiesList = (inputValue) => {
@@ -30,8 +29,8 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuer
                 options: response.data.map((city) => {
                     return {
                         value: `${city.latitude} ${city.longitude}`,
-                        lat: city.latitude,
-                        lon: city.longitude,
+                        lat: city.latitude.toFixed(4),
+                        lon: city.longitude.toFixed(4),
                         label: `${city.name}, ${city.countryCode}`
                     }
                 })
@@ -44,7 +43,7 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuer
         let confirmCity = window.confirm("add city to 'Saved'?") 
             if (confirmCity) {
                 const {value, label, ...coords} = city
-                setSavedLocationArr([...savedLocationArr, coords])
+                setSavedLocationCoords([...savedLocationCoords, coords])
 
                 setQuery({
                     lat: city.lat,
@@ -57,9 +56,6 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuer
                     })
                 }
             }
-            // console.log(savedLocationArr)
-    // console.log(weather)
-    
     
     const handleOnClick = () => {
         if (city !== '') {
@@ -81,7 +77,7 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, savedQuer
         return reactDom.createPortal(
             <div className="modal active" onClick={e => e.stopPropagation()}>
                     <button className='closing-button' onClick={onClose}>
-                        <img src={X} className='closing-svg'/>
+                        <img src={ExitButton} className='closing-svg'/>
                     </button>
                     <div className="modal__content">
                         <AsyncPaginate 
