@@ -4,7 +4,7 @@ import videoSunny from '../assets/background-videos/white-clouds-2099.mp4'
 import videoWindy from '../assets/background-videos/lightning-88492.mp4'
 import videoStorm from '../assets/background-videos/clouds-16495.mp4'
 import videoCloudy from '../assets/background-videos/clouds-1154.mp4'
-import '../styles/Container.css'
+import '../styles/ContainerWithData.css'
 
 const VideoBackground = ({description}) => {
 

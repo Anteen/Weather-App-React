@@ -1,5 +1,4 @@
 .hours-wrapper:first-child > .hours-time {
-    /* visibility: none; */
     position: relative;
     max-width: 39.91px;
     color: #373c4200;

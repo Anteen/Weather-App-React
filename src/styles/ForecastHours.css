@@ -1,14 +1,13 @@
 .forecast-hours__wrapper {
-    grid-column: 2/3;
-    grid-row: 2/2;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(145px);
-    -webkit-backdrop-filter: blur(145px);
-    border-radius: 15px;
-    padding: 10px 13px;
+    order: 2;
     height: 158px;
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
+    padding: 10px 13px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(145px);
+    -webkit-backdrop-filter: blur(145px);
 }
 .forecast-hours__description-wrapper {
     position: relative;
@@ -26,7 +25,6 @@
     font-size: 18px;
     line-height: 21px;
     color: #373C42;
-    font-size: 18px;
     border-bottom: solid 0.2px #373C42;
     padding-bottom: 10px;
 }
@@ -37,9 +35,8 @@
 }
 @media screen and (max-width: 605px) {
     .forecast-hours__wrapper {
-        grid-column: 1/1;
         overflow: scroll;
-        height: auto;
+        height: 200px;
     }
     .forecast-hours__hours-wrapper {
         gap: 20px;

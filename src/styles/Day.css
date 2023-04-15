@@ -26,13 +26,25 @@
 .day-title {
     width: 44px;
 }
-.day-wrapper__day-temp {
+.day-wrapper__day-temp, .day-wrapper__night-temp {
     width: 30px;
+}
+@media screen and (max-width: 925px) {
+    .day-wrapper__line {
+        width: 60%;
+    }
+    .day-wrapper__right-side {
+        width: 60%;
+        gap: 7px;
+    }
 }
 @media screen and (max-width: 862px) {
     .day-wrapper {
         padding: 5.5px 0;
-        gap: 7px;
+        gap: 2px;
+    }
+    .day-wrapper__left-side {
+        gap: 0;
     }
     .day-wrapper__left-side,
     .day-wrapper__right-side {
@@ -47,27 +59,34 @@
     .day-wrapper__left-side {
         flex: 0 1 70px;
         width: 60px;
-        gap: 5px;
+        gap: 2px;
         justify-content: space-between;
     }
     .day-wrapper__line {
         width: 60%;
     }
     .day-title {
-        width: 60px;
+        flex: 0 0 33px;
     }
     .day-wrapper__left-side > img {
         flex: 1 1 auto;
     }
 }
 @media screen and (max-width: 605px) {
-    .day-title, .day-wrapper__day-temp {
+    .day-title, .day-wrapper__day-temp, .day-wrapper__night-temp {
         font-size: 22px;
+    }
+    .day-wrapper {
+        padding: 15px 0;
     }
     .day-wrapper__right-side {
         width: 80%;
     }
+    .day-title {
+        flex: 0 0 40px;
+    }
     .day-wrapper__left-side {
-        flex: 0 1 100px;
+        gap: 10px;
+        justify-content: space-between;
     }
 }

@@ -1,15 +1,11 @@
 .sidebar-wrapper {
     width: 525px;
-    /* height: 100%; */
-    /* position: absolute;
-    top: 0;
-    right: 0; */
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(170px);
-    -webkit-backdrop-filter: blur(170px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(170px);
+    -webkit-backdrop-filter: blur(170px);
 }
 .search-button {
     width: 95%;

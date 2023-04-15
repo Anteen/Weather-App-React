@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Context } from '../context'
-import '../styles/Container.css'
+import '../styles/ContainerWithData.css'
 import SideBar from './SideBar'
 import Header from './Header'
 import ForecastDays from './ForecastDays/ForecastDays'

@@ -1,5 +1,5 @@
 import '../styles/SavedLocation.css'
-import '../styles/Container.css'
+import '../styles/ContainerWithData.css'
 import VideoBackground from './VideoBackground'
 
 const MyLocation = ({ localWeather: {name, temp, details, daily}, setQuery, unactivateSidebar }) => {

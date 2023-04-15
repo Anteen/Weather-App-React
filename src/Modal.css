@@ -1,13 +1,13 @@
 .modal {
-    height: 100%;
     width: 100%;
-    background: rgba(78, 112, 123, 0.42);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    height: 100%;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    display: none;
+    background: rgba(78, 112, 123, 0.42);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 .modal.active {
     display: flex;

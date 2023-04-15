@@ -4,10 +4,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    /* margin-top: 53px; */
     column-gap: 18px;
     row-gap: 18px;
-    max-height: 50%;
 }
 @media screen and (max-width: 862px) {
     .card-container {
@@ -17,7 +15,6 @@
 }
 @media screen and (max-width: 605px) {
     .card-container {
-        grid-column: 1/1;
-        grid-row: 4/4;
+        order: 4;
     }
 }

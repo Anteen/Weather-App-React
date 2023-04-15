@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../styles/SavedLocation.css'
-import '../styles/Container.css'
+import '../styles/ContainerWithData.css'
 import VideoBackground from './VideoBackground'
 import RemovingButton from '../assets/images/x-square.svg'
 

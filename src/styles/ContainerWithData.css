@@ -22,13 +22,6 @@
 .info-table-wrapper {
     margin: 0 auto;
     width: 95%;
-    /* padding: 34px 19px 34px 40px; */
-    /* padding-top: 4px; */
-    /* display: flex;
-    justify-content: space-between;
-    gap: 37px;
-    flex: 1 1 auto;
-    height: 50%; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, auto);
@@ -77,10 +70,10 @@
 @media screen and (max-width: 605px) {
     .main-info {
         padding: 25px 0;
+        width: 100vw;
     }
     .info-table-wrapper {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, auto);
-        column-gap: 0;
+        display: flex;
+        flex-direction: column;
     } 
 }

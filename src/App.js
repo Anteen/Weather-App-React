@@ -5,6 +5,7 @@ import ContainerWithData from './components/ContainerWithData.js';
 import Modal from './Modal';
 import formatedWeatherData from './services/api';
 import Preloader from './components/Preloader';
+import constants from '../src/constants/constants'
 
 function App() {
     const [active, setActive] = useState(false);
@@ -19,11 +20,10 @@ function App() {
         }
     };
 
-    let defaultCity = { lat: 48.85, lon: 2.35 };
+    const {Paris, units} = constants
 
-    const [units, setUnits] = useState('metric');
     const [localQuery, setLocalQuery] = useState(null);
-    const [query, setQuery] = useState(defaultCity);
+    const [query, setQuery] = useState(Paris);
     const [localWeather, setLocalWeather] = useState({});
     const [city, setCity] = useState('');
     const [weather, setWeather] = useState(null);
@@ -46,10 +46,7 @@ function App() {
     useEffect(() => {
         if (localQuery !== null) {
             const fetchWeather = async () => {
-                const data = await formatedWeatherData({
-                    ...localQuery,
-                    units,
-                });
+                const data = await formatedWeatherData({...localQuery, units});
                 setLocalWeather(data);
                 setLoading(false);
                 setQuery(localQuery);
@@ -60,7 +57,7 @@ function App() {
 
     useEffect(() => {
         const fetchWeather = async () => {
-            const data = await formatedWeatherData({ ...query, units });
+            const data = await formatedWeatherData({ ...query, units});
             setWeather(data);
             setLoading(false);
         };
