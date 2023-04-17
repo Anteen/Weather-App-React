@@ -7,10 +7,11 @@ import ForecastDays from './ForecastDays/ForecastDays'
 import ForecastHours from './ForecastHours/ForecastHours'
 import CardContainer from './WeatherCards/CardContainer'
 import VideoBackground from './VideoBackground'
-import burgerButton from '../assets/images/align-justify-svgrepo-com.svg'
+import BurgerButton from '../assets/images/align-justify-svgrepo-com.svg'
+import CloseButton from '../assets/images/x-circle-svgrepo-com.svg'
 
 
-const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSidebar, savedWeather}) => {
+const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSidebar, savedWeather, burgerButton}) => {
     
     const { change, adaptiveChange } = useContext(Context);
 
@@ -20,7 +21,17 @@ const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSi
                 className="button-open-sidebar"
                 onClick={() => change(activeSidebar)}
             >
-                <img src={burgerButton} className="button-open-sidebar__svg" />
+                {burgerButton === 'button-open-sidebar' ? (
+                    <img
+                        src={BurgerButton}
+                        className="button-open-sidebar__svg"
+                    />
+                ) : (
+                    <img
+                        src={CloseButton}
+                        className="button-open-sidebar__svg"
+                    />
+                )}
             </button>
             {weather && (
                 <>

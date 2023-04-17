@@ -10,9 +10,16 @@ import constants from '../src/constants/constants'
 function App() {
     const [active, setActive] = useState(false);
     const [activeSidebar, setActiveSidebar] = useState('sidebar-wrapper');
+    const [burgerButton, setBurgerButton] = useState('button-open-sidebar')
 
     const change = () => {
-        setActiveSidebar('sidebar-wrapper sidebar-wrapper_active');
+        if (activeSidebar === 'sidebar-wrapper') {
+            setActiveSidebar('sidebar-wrapper sidebar-wrapper_active');
+            setBurgerButton('button-open-sidebar-active')
+        } else if (activeSidebar === 'sidebar-wrapper sidebar-wrapper_active') {
+            setActiveSidebar('sidebar-wrapper');
+            setBurgerButton('button-open-sidebar')
+        }
     };
     const adaptiveChange = () => {
         if (activeSidebar === 'sidebar-wrapper sidebar-wrapper_active') {
@@ -97,6 +104,7 @@ function App() {
                     openModal={setActive}
                     localWeather={localWeather}
                     activeSidebar={activeSidebar}
+                    burgerButton={burgerButton}
                 />
                 <Modal
                     open={active}
