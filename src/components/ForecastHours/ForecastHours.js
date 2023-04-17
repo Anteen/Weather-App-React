@@ -1,6 +1,6 @@
 import '../../styles/ForecastHours.css';
-import Hours from './Hours';
-import '../../styles/Day.css';
+import HourItems from './HourItems';
+import '../../styles/DayItems.css';
 
 const ForecastHours = ({ items }) => {
     
@@ -15,7 +15,7 @@ const ForecastHours = ({ items }) => {
             <div className="forecast-hours__hours-wrapper">
                 {items.map((item, index) => {
                     return (
-                        <Hours
+                        <HourItems
                             key={index}
                             time={items.title}
                             temp={items.temp}

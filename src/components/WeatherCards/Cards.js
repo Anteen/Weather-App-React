@@ -1,4 +1,4 @@
-import '../../styles/Card.css';
+import '../../styles/Cards.css';
 import RLine from '../../assets/images/webp/rainbow-line.webp';
 import SunMax from '../../assets/images/webp/sun-max.webp';
 import Humidity from '../../assets/images/webp/humidity.webp';
@@ -10,7 +10,7 @@ import sunriseVector from '../../assets/images/webp/sunrise-vector.webp';
 import sunriseEllipse from '../../assets/images/webp/ellipse.webp';
 import Compas from '../../assets/images/webp/compas.webp';
 
-const Card = ({ weather }) => {
+const Cards = ({ weather }) => {
     const [hourly] = weather.hourly;
 
     const timeConverter = () => {
@@ -20,12 +20,12 @@ const Card = ({ weather }) => {
         let m = (onlyTime / 3600000).toFixed(4).split('');
         let removedHours = m.splice(0, 3).join('');
         m = Math.round(Number(`0.${m.join('')}`) * 60);
-        let convertedTime = `${h}:${m}`;
+        const convertedTime = `${h}:${m}`;
         return convertedTime;
     };
 
     return (
-        <>
+        <div className="card-container">
             <div className="card-wrapper">
                 <div className="card-wrapper__header">
                     <img src={SunMax} />
@@ -101,8 +101,8 @@ const Card = ({ weather }) => {
                     Visibility is good
                 </h3>
             </div>
-        </>
+        </div>
     );
 };
 
-export default Card;
+export default Cards;

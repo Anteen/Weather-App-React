@@ -1,9 +1,9 @@
-.hours-wrapper:first-child > .hours-time {
+.hour-items-wrapper:first-child > .hour-items-time {
     position: relative;
     max-width: 39.91px;
     color: #373c4200;
 }
-.hours-wrapper:first-child > .hours-time::before {
+.hour-items-wrapper:first-child > .hour-items-time::before {
     content: "Now";
     position: absolute;
     left: 0;
@@ -11,20 +11,20 @@
     text-align: center;
     color: #373C42;
 }
-.hours-wrapper {
+.hour-items-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
-.hours-time {
+.hour-items-time {
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
     line-height: 20px;
     color: #373C42;
 }
-.hours-degree {
+.hour-items-degree {
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -33,13 +33,13 @@
     color: #373C42;
 }
 @media screen and (max-width: 605px) {
-    .hours-time {
+    .hour-items-time {
         font-size: 17px;
     }
-    .hours-degree {
+    .hour-items-degree {
         font-size: 22px;
     }
-    .hours-wrapper {
+    .hour-items-wrapper {
         gap: 10px;
     }
 }

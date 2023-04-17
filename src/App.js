@@ -7,23 +7,23 @@ import formatedWeatherData from './services/api';
 import Preloader from './components/Preloader';
 import constants from '../src/constants/constants'
 
-function App() {
+const App = () => {
     const [active, setActive] = useState(false);
-    const [activeSidebar, setActiveSidebar] = useState('sidebar-wrapper');
-    const [burgerButton, setBurgerButton] = useState('button-open-sidebar')
+    const [activeSidebarClass, setActiveSidebarClass] = useState('sidebar-wrapper');
+    const [burgerButtonClass, setBurgerButtonClass] = useState('button-open-sidebar')
 
     const change = () => {
-        if (activeSidebar === 'sidebar-wrapper') {
-            setActiveSidebar('sidebar-wrapper sidebar-wrapper_active');
-            setBurgerButton('button-open-sidebar-active')
-        } else if (activeSidebar === 'sidebar-wrapper sidebar-wrapper_active') {
-            setActiveSidebar('sidebar-wrapper');
-            setBurgerButton('button-open-sidebar')
+        if (activeSidebarClass === 'sidebar-wrapper') {
+            setActiveSidebarClass('sidebar-wrapper sidebar-wrapper_active');
+            setBurgerButtonClass('button-open-sidebar-active')
+        } else if (activeSidebarClass === 'sidebar-wrapper sidebar-wrapper_active') {
+            setActiveSidebarClass('sidebar-wrapper');
+            setBurgerButtonClass('button-open-sidebar')
         }
     };
     const adaptiveChange = () => {
-        if (activeSidebar === 'sidebar-wrapper sidebar-wrapper_active') {
-            setActiveSidebar('sidebar-wrapper');
+        if (activeSidebarClass === 'sidebar-wrapper sidebar-wrapper_active') {
+            setActiveSidebarClass('sidebar-wrapper');
         }
     };
 
@@ -32,10 +32,10 @@ function App() {
     const [localQuery, setLocalQuery] = useState(null);
     const [query, setQuery] = useState(Paris);
     const [localWeather, setLocalWeather] = useState({});
-    const [city, setCity] = useState('');
+    const [selectedCity, setSelectedCity] = useState('');
     const [weather, setWeather] = useState(null);
     const [savedLocationCoords, setSavedLocationCoords] = useState(JSON.parse(localStorage.getItem('savedLocationCoords')) || []);
-    const [savedWeather, setSavedWeather] = useState([]);
+    const [savedCitiesWeather, setSavedCitiesWeather] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -78,12 +78,12 @@ function App() {
             const data = await formatedWeatherData({...savedLocationCoords[i], units})
             tempDataArr.push(data)
           }
-          setSavedWeather([...tempDataArr])
+          setSavedCitiesWeather([...tempDataArr])
           setLoading(false)
         }
         localStorage.setItem('savedLocationCoords', JSON.stringify(savedLocationCoords))
         fetchWeather()
-      }, [savedLocationCoords])
+    }, [savedLocationCoords])
 
     if (loading) {
         return <Preloader />;
@@ -99,20 +99,20 @@ function App() {
             <div className="App">
                 <ContainerWithData
                     setQuery={setQuery}
-                    savedWeather={savedWeather}
+                    savedCitiesWeather={savedCitiesWeather}
                     weather={weather}
                     openModal={setActive}
                     localWeather={localWeather}
-                    activeSidebar={activeSidebar}
-                    burgerButton={burgerButton}
+                    activeSidebarClass={activeSidebarClass}
+                    burgerButtonClass={burgerButtonClass}
                 />
                 <Modal
                     open={active}
                     onClose={() => setActive(false)}
                     setQuery={setQuery}
-                    activeSidebar={activeSidebar}
-                    city={city}
-                    setCity={setCity}
+                    activeSidebarClass={activeSidebarClass}
+                    selectedCity={selectedCity}
+                    setSelectedCity={setSelectedCity}
                     savedLocationCoords={savedLocationCoords}
                     setSavedLocationCoords={setSavedLocationCoords}
                 />

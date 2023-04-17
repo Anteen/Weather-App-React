@@ -10,7 +10,7 @@ import { GEO_API_URL, geoApi } from './services/api'
 
 const modalRootElement = document.querySelector("#modal")
 
-const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, setSavedLocationCoords, savedLocationCoords} ) => {
+const Modal = ({open, onClose, setQuery, activeSidebarClass, selectedCity, setSelectedCity, setSavedLocationCoords, savedLocationCoords} ) => {
     
     const element = document.createElement("div")
 
@@ -18,7 +18,7 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, setSavedL
     const {change, adaptiveChange, addSavedCity} = useContext(Context)
 
     const handleOnChange = (searchData) => {
-        setCity(searchData)
+        setSelectedCity(searchData)
     }
 
     const loadCitiesList = (inputValue) => {
@@ -42,26 +42,26 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, setSavedL
     const saveCity = () => {
         let confirmCity = window.confirm("add city to 'Saved'?") 
             if (confirmCity) {
-                const {value, label, ...coords} = city
+                const {value, label, ...coords} = selectedCity
                 setSavedLocationCoords([...savedLocationCoords, coords])
 
                 setQuery({
-                    lat: city.lat,
-                    lon: city.lon,
+                    lat: selectedCity.lat,
+                    lon: selectedCity.lon,
                 })
                 } else {
                     setQuery({
-                        lat: city.lat,
-                        lon: city.lon,
+                        lat: selectedCity.lat,
+                        lon: selectedCity.lon,
                     })
                 }
             }
     
     const handleOnClick = () => {
-        if (city !== '') {
+        if (selectedCity !== '') {
             saveCity()
             onClose()
-            adaptiveChange(activeSidebar)
+            adaptiveChange(activeSidebarClass)
         } 
     }
     useEffect(() => {
@@ -83,7 +83,7 @@ const Modal = ({open, onClose, setQuery, activeSidebar, city, setCity, setSavedL
                         <AsyncPaginate 
                             placeholder='Search for city...'
                             debounceTimeout={600} 
-                            value={city} 
+                            value={selectedCity} 
                             onChange={handleOnChange} 
                             loadOptions={loadCitiesList}
                             />

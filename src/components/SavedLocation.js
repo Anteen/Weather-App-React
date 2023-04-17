@@ -6,19 +6,17 @@ import RemovingButton from '../assets/images/x-square.svg'
 
 const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQuery, unactivateSidebar}) => {
     
-    const [weatherArray] = daily;
+    const [dailyWeather] = daily;
     const [isVisible, setIsVisible] = useState(true)
-
-
-    const [savedCard, setSavedCard] = useState('location-container');
+    const [savedCardClass, setSavedCardClass] = useState('location-container');
     const handleMouseEnter = () => {
-        if (savedCard === 'location-container') {
-            setSavedCard('location-container-hovered');
+        if (savedCardClass === 'location-container') {
+            setSavedCardClass('location-container-hovered');
         }
     };
     const handleMouseLeave = () => {
-        if (savedCard === 'location-container-hovered') {
-            setSavedCard('location-container');
+        if (savedCardClass === 'location-container-hovered') {
+            setSavedCardClass('location-container');
         }
     };
 
@@ -45,11 +43,11 @@ const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQue
             {isVisible && (
                 <div
                     onClick={currentLocationClick}
-                    className={savedCard}
+                    className={savedCardClass}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <button className="location-button" onClick={removeCard}>
+                    <button className="location-button" onClick={(e) => { e.stopPropagation(); removeCard(); }}>
                         <img
                             src={RemovingButton}
                             className="location-button-image"
@@ -66,8 +64,8 @@ const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQue
                                 {Math.round(temp)}°
                             </h2>
                             <h2 className="location-degree-subtitle">
-                                H:{Math.round(weatherArray.tempMax)}° L:
-                                {Math.round(weatherArray.tempMin)}°
+                                H:{Math.round(dailyWeather.tempMax)}° L:
+                                {Math.round(dailyWeather.tempMin)}°
                             </h2>
                         </div>
                     </div>

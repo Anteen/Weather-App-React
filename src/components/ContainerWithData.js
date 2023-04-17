@@ -5,23 +5,23 @@ import SideBar from './SideBar'
 import Header from './Header'
 import ForecastDays from './ForecastDays/ForecastDays'
 import ForecastHours from './ForecastHours/ForecastHours'
-import CardContainer from './WeatherCards/CardContainer'
+import Cards from './WeatherCards/Cards'
 import VideoBackground from './VideoBackground'
 import BurgerButton from '../assets/images/align-justify-svgrepo-com.svg'
 import CloseButton from '../assets/images/x-circle-svgrepo-com.svg'
 
 
-const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSidebar, savedWeather, burgerButton}) => {
+const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSidebarClass, savedCitiesWeather, burgerButtonClass}) => {
     
     const { change, adaptiveChange } = useContext(Context);
 
     return (
-        <div className="Container">
+        <div className="сontainer-with-data">
             <button
                 className="button-open-sidebar"
-                onClick={() => change(activeSidebar)}
+                onClick={() => change(activeSidebarClass)}
             >
-                {burgerButton === 'button-open-sidebar' ? (
+                {burgerButtonClass === 'button-open-sidebar' ? (
                     <img
                         src={BurgerButton}
                         className="button-open-sidebar__svg"
@@ -41,16 +41,16 @@ const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSi
                             <Header weather={weather} items={weather.daily} />
                             <ForecastDays items={weather.daily} />
                             <ForecastHours items={weather.hourly} />
-                            <CardContainer weather={weather} />
+                            <Cards weather={weather} />
                         </div>
                     </main>
                     <SideBar
                         setQuery={setQuery}
                         openModal={openModal}
                         localWeather={localWeather}
-                        savedWeather={savedWeather}
-                        activeSideBar={activeSidebar}
-                        unactivateSidebar={() => adaptiveChange(activeSidebar)}
+                        savedCitiesWeather={savedCitiesWeather}
+                        activeSideBarClass={activeSidebarClass}
+                        unactivateSidebar={() => adaptiveChange(activeSidebarClass)}
                     />
                 </>
             )}

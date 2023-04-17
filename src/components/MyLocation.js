@@ -5,7 +5,7 @@ import VideoBackground from './VideoBackground'
 const MyLocation = ({ localWeather: {name, temp, details, daily}, setQuery, unactivateSidebar }) => {
     const [localWeatherArray] = daily;
 
-    const currentLocationClick = () => {
+    const handleCurrentLocationClick = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
                 let lat = position.coords.latitude;
@@ -22,7 +22,7 @@ const MyLocation = ({ localWeather: {name, temp, details, daily}, setQuery, unac
 
     return (
         <>
-            <div onClick={currentLocationClick} className="location-container">
+            <div onClick={handleCurrentLocationClick} className="location-container">
                 <VideoBackground description={details} />
                 <div className="location-wrapper">
                     <div className="location-description">

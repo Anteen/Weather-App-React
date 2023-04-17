@@ -1,11 +1,11 @@
 import SavedLocation from "./SavedLocation"
 import '../styles/SavedLocation.css'
 
-const SavedLocations = ({setQuery, savedWeather, unactivateSidebar}) => {
+const SavedLocations = ({setQuery, savedCitiesWeather, unactivateSidebar}) => {
     
     return (
         <div className="saved-locations-container">
-            {savedWeather.map((location, index) => {
+            {savedCitiesWeather.map((location, index) => {
                 return (
                     <SavedLocation
                         key={index}

@@ -1,7 +1,7 @@
-import '../../styles/Hours.css';
+import '../../styles/HourItems.css';
 import { iconFromUrl } from '../../services/api';
 
-const Hours = ({ title, temp, icon }) => {
+const HourItems = ({ title, temp, icon }) => {
     title = title.split('');
     title.splice(2, 4);
 
@@ -11,12 +11,12 @@ const Hours = ({ title, temp, icon }) => {
     title = title.join('');
 
     return (
-        <div className="hours-wrapper">
-            <p className="hours-time">{title}</p>
+        <div className="hour-items-wrapper">
+            <p className="hour-items-time">{title}</p>
             <img src={iconFromUrl(icon)} className="weather-app-icons" />
-            <p className="hours-degree">{Math.round(temp)}°</p>
+            <p className="hour-items-degree">{Math.round(temp)}°</p>
         </div>
     );
 };
 
-export default Hours;
+export default HourItems;
