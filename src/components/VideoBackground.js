@@ -4,7 +4,7 @@ import videoSunny from '../assets/background-videos/white-clouds-2099.mp4'
 import videoWindy from '../assets/background-videos/lightning-88492.mp4'
 import videoStorm from '../assets/background-videos/clouds-16495.mp4'
 import videoCloudy from '../assets/background-videos/clouds-1154.mp4'
-import '../styles/ContainerWithData.css'
+import styles from '../styles/ContainerWithData.module.css'
 
 const VideoBackground = ({description}) => {
 
@@ -46,7 +46,7 @@ const VideoBackground = ({description}) => {
         break
     }
     
-    return <video className="background-video" src={backgroundVideo} autoPlay muted loop />
+    return <video className={styles.backgroundVideo} src={backgroundVideo} autoPlay muted loop />
 
 }
 export default VideoBackground

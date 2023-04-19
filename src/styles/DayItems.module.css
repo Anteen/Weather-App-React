@@ -1,4 +1,4 @@
-.day-items-wrapper {
+.dayItemWrapper {
     display: flex;
     justify-content: space-between;
     padding: 11px 0;
@@ -6,8 +6,8 @@
     position: relative;
     border-bottom: solid  0.25px #373C42 ;
 }
-.day-items-wrapper__left-side,
-.day-items-wrapper__right-side {
+.leftSide,
+.rightSide {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,75 +17,79 @@
     font-size: 22px;
     line-height: 26px;
 }
-.day-items-wrapper__line {
+.line {
     display: block;
     height: 4px;
     mix-blend-mode: overlay;
     flex: 0 1 auto;
 }
-.day-items-title {
+.title {
     width: 44px;
 }
-.day-items-wrapper__day-items-temp, .day-items-wrapper__night-temp {
+.temp, .nightTemp {
     width: 30px;
 }
+.weatherAppIcons {
+    width: 40px;
+    height: 40px;
+}  
 @media screen and (max-width: 925px) {
-    .day-items-wrapper__line {
+    .line {
         width: 60%;
     }
-    .day-items-wrapper__right-side {
+    .rightSide {
         width: 60%;
         gap: 7px;
     }
 }
 @media screen and (max-width: 862px) {
-    .day-items-wrapper {
+    .dayItemWrapper {
         padding: 5.5px 0;
         gap: 2px;
     }
-    .day-items-wrapper__left-side {
+    .leftSide {
         gap: 0;
     }
-    .day-items-wrapper__left-side,
-    .day-items-wrapper__right-side {
+    .leftSide,
+    .rightSide {
         font-size: 17px;
     }
-    .day-items-wrapper__right-side {
+    .rightSide {
         flex: 0 2 auto;
         justify-content: end;
         gap: 7px;
         width: 150px;
     }
-    .day-items-wrapper__left-side {
+    .leftSide {
         flex: 0 1 70px;
         width: 60px;
         gap: 2px;
         justify-content: space-between;
     }
-    .day-items-wrapper__line {
+    .line {
         width: 60%;
     }
-    .day-items-title {
+    .title {
         flex: 0 0 33px;
     }
-    .day-items-wrapper__left-side > img {
+    .leftSide > img {
         flex: 1 1 auto;
     }
 }
 @media screen and (max-width: 605px) {
-    .day-items-title, .day-items-wrapper__day-items-temp, .day-items-wrapper__night-temp {
+    .title, .temp, .nightTemp {
         font-size: 22px;
     }
-    .day-items-wrapper {
+    .dayItemWrapper {
         padding: 15px 0;
     }
-    .day-items-wrapper__right-side {
+    .rightSide {
         width: 80%;
     }
-    .day-items-title {
+    .title {
         flex: 0 0 40px;
     }
-    .day-items-wrapper__left-side {
+    .leftSide {
         gap: 10px;
         justify-content: space-between;
     }

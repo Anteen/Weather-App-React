@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Context } from './context';
 import './App.css';
+import sidebarStyles from './styles/SideBar.module.css'
+import containerStyles from './styles/ContainerWithData.module.css'
 import ContainerWithData from './components/ContainerWithData.js';
 import Modal from './Modal';
 import formatedWeatherData from './services/api';
@@ -9,21 +11,21 @@ import constants from '../src/constants/constants'
 
 const App = () => {
     const [active, setActive] = useState(false);
-    const [activeSidebarClass, setActiveSidebarClass] = useState('sidebar-wrapper');
-    const [burgerButtonClass, setBurgerButtonClass] = useState('button-open-sidebar')
+    const [activeSidebarClass, setActiveSidebarClass] = useState(sidebarStyles.sidebarWrapper);
+    const [burgerButtonClass, setBurgerButtonClass] = useState(containerStyles.burgerButton)
 
     const change = () => {
-        if (activeSidebarClass === 'sidebar-wrapper') {
-            setActiveSidebarClass('sidebar-wrapper sidebar-wrapper_active');
-            setBurgerButtonClass('button-open-sidebar-active')
-        } else if (activeSidebarClass === 'sidebar-wrapper sidebar-wrapper_active') {
-            setActiveSidebarClass('sidebar-wrapper');
-            setBurgerButtonClass('button-open-sidebar')
+        if (activeSidebarClass === sidebarStyles.sidebarWrapper) {
+            setActiveSidebarClass(`${sidebarStyles.sidebarWrapper} ${sidebarStyles.sidebarWrapperActive}`);
+            setBurgerButtonClass(containerStyles.burgerButtonActive)
+        } else if (activeSidebarClass === `${sidebarStyles.sidebarWrapper} ${sidebarStyles.sidebarWrapperActive}`) {
+            setActiveSidebarClass(sidebarStyles.sidebarWrapper);
+            setBurgerButtonClass(containerStyles.burgerButton)
         }
     };
     const adaptiveChange = () => {
-        if (activeSidebarClass === 'sidebar-wrapper sidebar-wrapper_active') {
-            setActiveSidebarClass('sidebar-wrapper');
+        if (activeSidebarClass === `${sidebarStyles.sidebarWrapper} ${sidebarStyles.sidebarWrapperActive}`) {
+            setActiveSidebarClass(sidebarStyles.sidebarWrapper);
         }
     };
 

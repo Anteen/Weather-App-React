@@ -1,4 +1,4 @@
-import '../../styles/HourItems.css';
+import styles from '../../styles/HourItems.module.css';
 import { iconFromUrl } from '../../services/api';
 
 const HourItems = ({ title, temp, icon }) => {
@@ -11,10 +11,10 @@ const HourItems = ({ title, temp, icon }) => {
     title = title.join('');
 
     return (
-        <div className="hour-items-wrapper">
-            <p className="hour-items-time">{title}</p>
-            <img src={iconFromUrl(icon)} className="weather-app-icons" />
-            <p className="hour-items-degree">{Math.round(temp)}°</p>
+        <div className={styles.hourItemsWrapper}>
+            <p className={styles.time}>{title}</p>
+            <img src={iconFromUrl(icon)} className={styles.weatherAppIcons} />
+            <p className={styles.degree}>{Math.round(temp)}°</p>
         </div>
     );
 };

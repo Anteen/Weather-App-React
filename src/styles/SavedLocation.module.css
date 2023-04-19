@@ -1,4 +1,4 @@
-.location-container, .location-container-hovered {
+.locationContainer, .locationContainerHovered {
     width: 100%;
     height: 200px;
     border-radius: 14px !important;
@@ -6,16 +6,16 @@
     cursor: pointer;
     overflow: hidden;
 }
-.location-container-hovered {
+.locationContainerHovered {
     background-color: rgba(0, 0, 0, 0.2);
 }
-.location-container > .location-button {
+.locationContainer > .locationButton {
     display: none;
 }
-.location-container-hovered > .location-button {
+.locationContainerHovered > .locationButton {
     display: block;
 }
-.location-button {
+.locationButton {
     width: 7%;
     height: 15%;
     position: absolute;
@@ -27,16 +27,16 @@
     background-color: unset;
     cursor: pointer;
 }
-.location-button-image {
+.locationButtonImage {
     display: block;
     width: 100%;
     height: 100%;
     margin: 0;
 }
-.location-button-image:hover {
+.locationButtonImage:hover {
     opacity: 0.3;
 }
-.saved-locations-container {
+.savedLocationsContainer {
     width: 100%;
     height: auto;
     margin: 25px 0px 0px;
@@ -44,14 +44,14 @@
     flex-direction: column;
     gap: 25px;
 }
-.saved-locations-container > .location-container {
+.savedLocationsContainer > .locationContainer {
     margin: 0;
     width: 100%;
 }
-.card-video {
+.cardVideo {
     border-radius: 14px;
 }
-.location-wrapper {
+.locationWrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,13 +63,13 @@
     padding: 22px 20px;
     color: white;
 }
-.locations-container > .location-container > .location-wrapper:hover {
+.locationsContainer > .locationContainer > .locationWrapper:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
-.location-container > .background-video {
+.locationContainer > .backgroundVideo {
     border-radius: 14px;
 }
-.location-description {
+.locationDescription {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -80,63 +80,63 @@
     line-height: 28px;
     position: relative;
 }
-.location-degreeses {
+.locationDegreeses {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.location-title {
+.locationTitle {
     font-family: 'SF Pro Display', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 39px;
 }
-.location-subtitle, .location-weather {
+.locationSubtitle, .locationWeather {
     font-weight: 400;
     font-size: 21px;
     line-height: 28px;
 }
-.location-subtitle {
+.locationSubtitle {
     position: absolute;
     top: 44px;
     left: 0;
 }
-.location-degree-title {
+.locationDegreeTitle {
     font-weight: 300;
     font-size: 110px;
     line-height: 131px;
 }
-.location-city {
+.locationCity {
     position: absolute;
     top: 35%;
 }
 @media screen and (max-width: 862px) {
-    .location-container {
+    .locationContainer {
         height: 100px;
     }
-    .location-wrapper {
+    .locationWrapper {
         padding: 10px 10px;
     }
-    .location-description {
+    .locationDescription {
         font-size: 15px;
         line-height: unset;
     }
-    .location-degreeses {
+    .locationDegreeses {
         justify-content: flex-end;
         align-items: flex-end;
         gap: 35px;
     }
-    .location-title {
+    .locationTitle {
         font-size: 25px;
         line-height: unset;
     }
-    .location-subtitle, .location-weather, .location-degree-subtitle {
+    .locationSubtitle, .locationWeather, .locationDegreeSubtitle {
         font-size: 20px;
         line-height: unset;
     }
-    .location-degree-title {
+    .locationDegreeTitle {
         font-size: 40px;
         line-height: 10px;
     }

@@ -1,5 +1,5 @@
 import Line from '../../assets/images/webp/dn-line.webp';
-import '../../styles/DayItems.css';
+import styles from '../../styles/DayItems.module.css';
 import { iconFromUrl } from '../../services/api';
 
 const DayItems = (items) => {
@@ -7,20 +7,20 @@ const DayItems = (items) => {
         return null;
     } else {
         return (
-            <div className="day-items-wrapper">
-                <div className="day-items-wrapper__left-side">
-                    <p className="day-items-title">{items.title}</p>
+            <div className={styles.dayItemWrapper}>
+                <div className={styles.leftSide}>
+                    <p className={styles.title}>{items.title}</p>
                     <img
                         src={iconFromUrl(items.icon)}
-                        className="weather-app-icons"
+                        className={styles.weatherAppIcons}
                     />
                 </div>
-                <div className="day-items-wrapper__right-side">
-                    <p className="day-items-wrapper__night-temp">
+                <div className={styles.rightSide}>
+                    <p className={styles.nightTemp}>
                         {Math.round(items.tempNight)}°
                     </p>
-                    <img src={Line} className="day-items-wrapper__line"></img>
-                    <p className="day-items-wrapper__day-items-temp">
+                    <img src={Line} className={styles.line}></img>
+                    <p className={styles.temp}>
                         {Math.round(items.tempDay)}°
                     </p>
                 </div>

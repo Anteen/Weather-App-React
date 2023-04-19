@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Context } from '../context'
-import '../styles/ContainerWithData.css'
+import styles from '../styles/ContainerWithData.module.css'
 import SideBar from './SideBar'
 import Header from './Header'
 import ForecastDays from './ForecastDays/ForecastDays'
@@ -16,28 +16,28 @@ const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSi
     const { change, adaptiveChange } = useContext(Context);
 
     return (
-        <div className="сontainer-with-data">
+        <div className={styles.dataContainer}>
             <button
-                className="button-open-sidebar"
+                className={styles.burgerButton}
                 onClick={() => change(activeSidebarClass)}
             >
-                {burgerButtonClass === 'button-open-sidebar' ? (
+                {burgerButtonClass === styles.burgerButton ? (
                     <img
                         src={BurgerButton}
-                        className="button-open-sidebar__svg"
+                        className={styles.burgerButtonSvg}
                     />
                 ) : (
                     <img
                         src={CloseButton}
-                        className="button-open-sidebar__svg"
+                        className={styles.burgerButtonSvg}
                     />
                 )}
             </button>
             {weather && (
                 <>
                     <VideoBackground description={weather.details} />
-                    <main className="main-info">
-                        <div className="info-table-wrapper">
+                    <main className={styles.mainInfo}>
+                        <div className={styles.infoTableWrapper}>
                             <Header weather={weather} items={weather.daily} />
                             <ForecastDays items={weather.daily} />
                             <ForecastHours items={weather.hourly} />

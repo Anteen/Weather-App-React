@@ -1,10 +1,10 @@
-import '../styles/SideBar.css';
+import styles from '../styles/SideBar.module.css';
 import search from '../assets/images/vector.svg';
 
 const Search = ({ openModal }) => {
     return (
-        <button className="search-button" onClick={() => openModal(true)}>
-            <img src={search} className="search-icon" />
+        <button className={styles.searchButton} onClick={() => openModal(true)}>
+            <img src={search} className={styles.searchIcon} />
             Search for a city or airport
         </button>
     );

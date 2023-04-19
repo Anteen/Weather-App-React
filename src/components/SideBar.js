@@ -1,4 +1,4 @@
-import '../styles/SideBar.css'
+import styles from '../styles/SideBar.module.css'
 import Search from './Search'
 import MyLocation from './MyLocation'
 import SavedLocations from './SavedLocations'
@@ -8,7 +8,7 @@ const SideBar = ({localWeather, activeSideBarClass, openModal, setQuery, unactiv
     return (
         <nav className={activeSideBarClass}>
             <Search openModal={openModal} />
-            <div className="locations-container">
+            <div className={styles.locationsContainer}>
                 {localWeather.name && (
                     <MyLocation
                         setQuery={setQuery}

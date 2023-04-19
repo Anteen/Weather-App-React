@@ -1,5 +1,6 @@
-import '../styles/SavedLocation.css'
-import '../styles/ContainerWithData.css'
+import { useState } from 'react'
+import savedLocationStyles from '../styles/SavedLocation.module.css'
+import sideBarStyles from '../styles/ContainerWithData.module.css'
 import VideoBackground from './VideoBackground'
 
 const MyLocation = ({ localWeather: {name, temp, details, daily}, setQuery, unactivateSidebar }) => {
@@ -17,24 +18,51 @@ const MyLocation = ({ localWeather: {name, temp, details, daily}, setQuery, unac
                 });
             });
         }
-        unactivateSidebar('sidebar-wrapper');
+        unactivateSidebar(sideBarStyles.sidebarWrapper);
+    };
+
+    const [savedCardClass, setSavedCardClass] = useState(savedLocationStyles.locationContainer);
+    const handleMouseEnter = () => {
+        if (savedCardClass === savedLocationStyles.locationContainer) {
+            setSavedCardClass(savedLocationStyles.locationContainerHovered);
+        }
+    };
+    const handleMouseLeave = () => {
+        if (savedCardClass === savedLocationStyles.locationContainerHovered) {
+            setSavedCardClass(savedLocationStyles.locationContainer);
+        }
     };
 
     return (
         <>
-            <div onClick={handleCurrentLocationClick} className="location-container">
+            <div
+                onClick={handleCurrentLocationClick}
+                className={savedCardClass}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
                 <VideoBackground description={details} />
-                <div className="location-wrapper">
-                    <div className="location-description">
-                        <h2 className="location-title">My location</h2>
-                        <p className="location-city">{name}</p>
-                        <p className="location-weather">{details}</p>
+                <div className={savedLocationStyles.locationWrapper}>
+                    <div className={savedLocationStyles.locationDescription}>
+                        <h2 className={savedLocationStyles.locationTitle}>
+                            My location
+                        </h2>
+                        <p className={savedLocationStyles.locationCity}>
+                            {name}
+                        </p>
+                        <p className={savedLocationStyles.locationWeather}>
+                            {details}
+                        </p>
                     </div>
-                    <div className="location-degreeses">
-                        <h2 className="location-degree-title">
+                    <div className={savedLocationStyles.locationDegreeses}>
+                        <h2 className={savedLocationStyles.locationDegreeTitle}>
                             {Math.round(temp)}°
                         </h2>
-                        <h2 className="location-degree-subtitle">
+                        <h2
+                            className={
+                                savedLocationStyles.locationDegreeSubtitle
+                            }
+                        >
                             H:{Math.round(localWeatherArray.tempMax)}° L:
                             {Math.round(localWeatherArray.tempMin)}°
                         </h2>

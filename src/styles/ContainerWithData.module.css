@@ -1,10 +1,10 @@
-.сontainer-with-data {
+.dataContainer {
     width: 100%;
     display: flex;
     justify-content: space-between;
     position: relative;
 }
-.background-video {
+.backgroundVideo {
     display: block;
     position: absolute;
     top: 0;
@@ -14,11 +14,11 @@
     object-fit: cover;
     z-index: -1;
 }
-.main-info {
+.mainInfo {
     margin: auto;
     padding: 15px 0;
 }
-.info-table-wrapper {
+.infoTableWrapper {
     margin: 0 auto;
     width: 95%;
     display: grid;
@@ -27,7 +27,7 @@
     gap: 20px 30px;
     height: 98%;
 }
-.button-open-sidebar, .button-open-sidebar-active {
+.burgerButton, .burgerButtonActive {
     width: 50px;
     height: 50px;
     position: absolute;
@@ -40,7 +40,7 @@
     display: none;
     z-index: 10000;
 }
-.button-open-sidebar__svg {
+.burgerButtonSvg {
     display: block;
     margin: auto;
     fill: white;
@@ -58,7 +58,7 @@
     height: 0;
 }
 @media screen and (max-width: 1410px) {
-    .button-open-sidebar {
+    .burgerButton {
         display: block;
     }
 }
@@ -68,11 +68,11 @@
     }
 } 
 @media screen and (max-width: 605px) {
-    .main-info {
+    .mainInfo {
         padding: 25px 0;
         width: 100vw;
     }
-    .info-table-wrapper {
+    .infoTableWrapper {
         display: flex;
         flex-direction: column;
     } 

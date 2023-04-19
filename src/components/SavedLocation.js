@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import '../styles/SavedLocation.css'
-import '../styles/ContainerWithData.css'
+import styles from '../styles/SavedLocation.module.css'
+import sideBarStyles from '../styles/SideBar.module.css'
 import VideoBackground from './VideoBackground'
 import RemovingButton from '../assets/images/x-square.svg'
 
@@ -8,15 +8,15 @@ const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQue
     
     const [dailyWeather] = daily;
     const [isVisible, setIsVisible] = useState(true)
-    const [savedCardClass, setSavedCardClass] = useState('location-container');
+    const [savedCardClass, setSavedCardClass] = useState(styles.locationContainer);
     const handleMouseEnter = () => {
-        if (savedCardClass === 'location-container') {
-            setSavedCardClass('location-container-hovered');
+        if (savedCardClass === styles.locationContainer) {
+            setSavedCardClass(styles.locationContainerHovered);
         }
     };
     const handleMouseLeave = () => {
-        if (savedCardClass === 'location-container-hovered') {
-            setSavedCardClass('location-container');
+        if (savedCardClass === styles.locationContainerHovered) {
+            setSavedCardClass(styles.locationContainer);
         }
     };
 
@@ -25,7 +25,7 @@ const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQue
             lat: lat,
             lon: lon,
         });
-        unactivateSidebar('sidebar-wrapper');
+        unactivateSidebar(sideBarStyles.sidebarWrapper);
     };
     
     const removeCard = () => {
@@ -47,23 +47,23 @@ const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQue
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <button className="location-button" onClick={(e) => { e.stopPropagation(); removeCard(); }}>
+                    <button className={styles.locationButton} onClick={(e) => { e.stopPropagation(); removeCard(); }}>
                         <img
                             src={RemovingButton}
-                            className="location-button-image"
+                            className={styles.locationButtonImage}
                         />
                     </button>
                     <VideoBackground description={details} />
-                    <div className="location-wrapper">
-                        <div className="location-description">
-                            <h2 className="location-title">{name}</h2>
-                            <p className="location-weather">{details}</p>
+                    <div className={styles.locationWrapper}>
+                        <div className={styles.locationDescription}>
+                            <h2 className={styles.locationTitle}>{name}</h2>
+                            <p className={styles.locationWeather}>{details}</p>
                         </div>
-                        <div className="location-degreeses">
-                            <h2 className="location-degree-title">
+                        <div className={styles.locationDegreeses}>
+                            <h2 className={styles.locationDegreeTitle}>
                                 {Math.round(temp)}°
                             </h2>
-                            <h2 className="location-degree-subtitle">
+                            <h2 className={styles.locationDegreeSubtitle}>
                                 H:{Math.round(dailyWeather.tempMax)}° L:
                                 {Math.round(dailyWeather.tempMin)}°
                             </h2>

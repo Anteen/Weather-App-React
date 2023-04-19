@@ -1,4 +1,4 @@
-.card-container {
+.cardContainer {
     grid-row: 3/3;
     grid-column: 2/3;
     display: grid;
@@ -8,17 +8,17 @@
     row-gap: 18px;
 }
 @media screen and (max-width: 862px) {
-    .card-container {
+    .cardContainer {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
     }
 }
 @media screen and (max-width: 605px) {
-    .card-container {
+    .cardContainer {
         order: 4;
     }
 }
-.card-wrapper {
+.cardWrapper {
     width: 140px;
     height: 140px;
     display: flex;
@@ -31,46 +31,46 @@
     backdrop-filter: blur(145px);
     -webkit-backdrop-filter: blur(145px);
 }
-.card-wrapper__header {
+.header {
     display: flex;
     align-items: center;
     width: 95%;
     gap: 5px;
 }
-.card-wrapper:last-child > .card-wrapper__header > img {
+.cardWrapper:last-child > .header > img {
     width: 23px;
 }
-.rainbow-line {
+.rainbowLine {
     margin: 5px 0 3px;
     height: 4.85px;
     padding: 0 6px;
 }
-.card-wrapper__title {
+.title {
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
     color: #000000;
     opacity: 0.3;
 }
-.card-wrapper__degree {
+.degree {
     width: 90%;
     font-size: 25px;
 }
-.card-wrapper__subtitle {
+.subtitle {
     width: 90%;
     font-size: 15px;
 }
-.card-wrapper__description {
+.description {
     width: 90%;
     font-size: 15px;
     margin-top: auto;
     margin-bottom: 2px;
 }
-.speed-wrapper {
+.speedWrapper {
     position: relative;
     margin-top: 3px
 }
-.speed-text {
+.speedText {
     position: absolute;
     top: 31%;
     left: 40.5%;
@@ -79,57 +79,57 @@
     align-items: center;
     justify-content: space-between;
 }
-.speed-title {
+.speedTitle {
     font-weight: 600;
     font-size: 18px;
 }
-.speed-subtitle {
+.speedSubtitle {
     font-size: 12px;
 }
-.card-wrapper__img-wrapper {
+.imgWrapper {
     position: relative;
     width: 108%;
     margin-top: 6px
 }
-.sunrise-ellipse {
+.sunriseEllipse {
     width: 6%;
     position: absolute;
     top: 36%;
     left: 23%;
 }
-.sunrise__subtitle {
+.sunriseSubtitle {
     text-align: center;
     flex: 1 1 auto;
     margin-top: 9px;
 }
-.compas-wrapper {
+.compasWrapper {
     position: relative;
     width: 100px;
     height: 100px;
 }
 @media screen and (max-width: 605px) {
-    .card-wrapper {
+    .cardWrapper {
         width: 100%;
         height: auto;
         padding: 14px;
         gap: 10px;
     }
-    .card-wrapper__title {
+    .title {
         font-size: 18px;
     }
-    .card-wrapper__degree {
+    .degree {
         font-size: 44px;
     }
-    .card-wrapper:nth-child(4) > .card-wrapper__degree {
+    .cardWrapper:nth-child(4) > .degree {
         margin-bottom: 30px;
     }
-    .card-wrapper__subtitle {
+    .subtitle {
         font-size: 27px;
     }
-    .card-wrapper__description {
+    .description {
         font-size: 22px;
     }
-    .speed-text {
+    .speedText {
         position: absolute;
         top: 30%;
         left: 40%;
@@ -138,52 +138,52 @@
         align-items: center;
         justify-content: space-between;
     }
-    .speed-title {
+    .speedTitle {
         font-size: 33px;
     }
-    .speed-subtitle {
+    .speedSubtitle {
         font-size: 25px;
     }
-    .rainbow-line {
+    .rainbowLine {
         height: unset;
         width: 100%;
     }
-    .card-wrapper__img-wrapper {
+    .imgWrapper {
         width: 114%;
     }
     .sunrise-vector {
         width: 100%;
     }
-    .compas-wrapper {
+    .compasWrapper {
         position: relative;
         width: 200px;
         height: 200px;
     }
 }
 @media screen and (max-width: 490px) {
-    .compas-wrapper {
+    .compasWrapper {
         width: 90%;
         height: 70%;
     }
-    .card-wrapper {
+    .cardWrapper {
         width: 100%;
         height: 100%;
         gap: 5px;
     }
-    .card-wrapper__degree {
+    .degree {
         font-size: 30px;
     }
-    .card-wrapper__subtitle {
+    .subtitle {
         width: 90%;
         font-size: 15px;
     }
-    .card-wrapper__description {
+    .description {
         width: 90%;
         font-size: 17px;
         margin-top: auto;
         margin-bottom: 2px;
     }
-    .speed-text {
+    .speedText {
         position: absolute;
         top: 31%;
         left: 40.5%;
@@ -192,30 +192,30 @@
         align-items: center;
         justify-content: space-between;
     }
-    .speed-title {
+    .speedTitle {
         font-weight: 600;
         font-size: 21px;
     }
-    .speed-subtitle {
+    .speedSubtitle {
         font-size: 15px;
     }
-    .card-wrapper__img-wrapper {
+    .imgWrapper {
         position: relative;
         width: 115%;
         margin-top: 6px
     }
-    .sunrise-ellipse {
+    .sunriseEllipse {
         width: 6%;
         position: absolute;
         top: 36%;
         left: 23%;
     }
-    .sunrise__subtitle {
+    .sunriseSubtitle {
         text-align: center;
         flex: 1 1 auto;
         margin-top: 9px;
     }
-    .compas-wrapper {
+    .compasWrapper {
         position: relative;
         width: 120px;
         height: 120px;

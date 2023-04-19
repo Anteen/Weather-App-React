@@ -1,9 +1,9 @@
-.hour-items-wrapper:first-child > .hour-items-time {
+.hourItemsWrapper:first-child > .time {
     position: relative;
     max-width: 39.91px;
     color: #373c4200;
 }
-.hour-items-wrapper:first-child > .hour-items-time::before {
+.hourItemsWrapper:first-child > .time::before {
     content: "Now";
     position: absolute;
     left: 0;
@@ -11,20 +11,20 @@
     text-align: center;
     color: #373C42;
 }
-.hour-items-wrapper {
+.hourItemsWrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
-.hour-items-time {
+.time {
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
     line-height: 20px;
     color: #373C42;
 }
-.hour-items-degree {
+.degree {
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -32,14 +32,18 @@
     letter-spacing: 0.005em;
     color: #373C42;
 }
+.weatherAppIcons {
+    width: 40px;
+    height: 40px;
+}  
 @media screen and (max-width: 605px) {
-    .hour-items-time {
+    .time {
         font-size: 17px;
     }
-    .hour-items-degree {
+    .degree {
         font-size: 22px;
     }
-    .hour-items-wrapper {
+    .hourItemsWrapper {
         gap: 10px;
     }
 }
