@@ -1,113 +1,130 @@
 .modal {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
+    display: none;
     width: 100%;
     height: 100%;
-    background: rgba(78, 112, 123, 0.42);
+    background: rgba(78, 112, 123, .42);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
+
 .modal.active {
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 40px;
 }
+
 .modal__content-container {
+    position: relative;
     width: 663px;
     height: 324px;
     border: solid;
     background-color: rgba(78, 112, 123, 0);
-    position: relative;
 }
+
 .modal__content {
-    width: 621px;
-    left: 0;
     bottom: 0;
-    background: #FFFFFF;
+    left: 0;
+    width: 621px;
     border-radius: 16px;
+    background: #fff;
 }
+
 .closing-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
+    position: relative;
+    top: 35px;
     right: 0;
+    left: 335px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 21.33px;
     height: 21.33px;
-    padding: 0;
     margin: 0;
-    background-color: rgba(78, 112, 123, 0);
-    border: 0;
+    padding: 0;
     cursor: pointer;
-    position: relative;
-    left: 335px;
-    top: 35px;
+    border: 0;
+    background-color: rgba(78, 112, 123, 0);
 }
+
 .closing-svg {
     width: 100%;
     stroke: white;
 }
+
 .modal__accept-button {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 21px;
+
     width: 621px;
     height: 41px;
-    background: #ABBFCE;
-    border-radius: 31px;
-    font-family: 'SF Pro Display', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-    color: #FFFFFF;
-    text-align: center;
-    border: none;
     cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 31px;
+    background: #abbfce;
 }
+
 .closing-svg:hover {
     stroke: rgb(235, 235, 235);
 }
+
 .modal__accept-button:hover {
-    background: #3AA9FF;
+    background: #3aa9ff;
 }
+
 .modal__input-container {
     display: flex;
+    overflow: hidden;
     align-items: center;
-    gap: 8px;
     width: 621px;
     height: 44px;
-    background: #F3F3F3;
-    border-radius: 16px;
-    border: none;
     padding: 0 16px;
-    overflow: hidden;
-}
-.modal__input {
-    width: 100%;
     border: none;
-    background: #F3F3F3;
-    height: 22px;
-    outline: none;
+    border-radius: 16px;
+    background: #f3f3f3;
+    gap: 8px;
+}
+
+.modal__input {
     font-family: 'SF Pro Display', sans-serif;
-    font-style: normal;
-    font-weight: 400;
     font-size: 17px;
+    font-weight: 400;
+    font-style: normal;
     line-height: 22px;
-    opacity: 0.6;
+
+    width: 100%;
+    height: 22px;
+    opacity: .6;
+    border: none;
+    outline: none;
+    background: #f3f3f3;
 }
+
 .modal__search-icon {
-    opacity: 0.5;
+    opacity: .5;
 }
+
 @media screen and (max-width: 730px) {
     .modal.active {
         justify-content: flex-start;
     }
+
     .closing-button {
         display: none;
     }
-    .modal__content, .modal__input-container, .modal__accept-button {
+
+    .modal__content,
+    .modal__input-container,
+    .modal__accept-button {
         width: 100%;
     }
 }

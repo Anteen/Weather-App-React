@@ -1,38 +1,45 @@
 .forecastDaysWrapper {
-    grid-row: 2 / 4;
+    overflow: hidden;
     width: 100%;
     height: 479px;
-    border-radius: 15px;
     padding: 10px 13px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .1);
+
+    grid-row: 2 / 4;
     backdrop-filter: blur(145px);
     -webkit-backdrop-filter: blur(145px);
-    overflow: hidden;
 }
+
 .title {
-    font-style: normal;
-    font-weight: 500;
     font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
     line-height: 18px;
-    color: #424242;
     text-align: center;
+    color: #424242;
 }
+
 @media screen and (max-width: 1410px) {
     .forecastDaysWrapper {
         justify-self: center;
     }
 }
+
 @media screen and (max-width: 862px) {
     .forecastDaysWrapper {
-        grid-row: 3 / 4;
         height: 100%;
+
+        grid-row: 3 / 4;
     }
 }
+
 @media screen and (max-width: 605px) {
     .forecastDaysWrapper {
         order: 3;
         height: 100%;
     }
+
     .title {
         margin-bottom: 5px;
     }

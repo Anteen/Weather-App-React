@@ -1,49 +1,57 @@
 .forecastHoursWrapper {
-    order: 2;
-    height: 158px;
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
+    order: 2;
+    height: 158px;
     padding: 10px 13px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .1);
     backdrop-filter: blur(145px);
     -webkit-backdrop-filter: blur(145px);
 }
+
 .descriptionWrapper {
     position: relative;
     padding-bottom: 8px;
 }
+
 .hoursWrapper {
-    flex: 1 1 auto;
-    width: 100%;
     display: flex;
+    flex: 1 1 auto;
     justify-content: space-between;
+    width: 100%;
 }
+
 .description {
-    font-style: normal;
-    font-weight: 400;
     font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
     line-height: 21px;
-    color: #373C42;
-    border-bottom: solid 0.2px #373C42;
     padding-bottom: 10px;
+    color: #373c42;
+    border-bottom: solid .2px #373c42;
 }
+
 @media screen and (max-width: 862px) {
     .forecastHoursWrapper {
         grid-column: 1/3;
     }
 }
+
 @media screen and (max-width: 605px) {
     .forecastHoursWrapper {
         overflow: scroll;
         height: 200px;
     }
+
     .hoursWrapper {
         gap: 20px;
     }
+
     .descriptionWrapper {
         position: relative;
     }
+
     .descriptionWrapper {
         position: sticky;
         left: 0;
