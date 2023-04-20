@@ -8,6 +8,7 @@ import Modal from './Modal';
 import formatedWeatherData from './services/api';
 import Preloader from './components/Preloader';
 import constants from '../src/constants/constants'
+const {Paris, units} = constants
 
 const App = () => {
     const [active, setActive] = useState(false);
@@ -29,7 +30,6 @@ const App = () => {
         }
     };
 
-    const {Paris, units} = constants
 
     const [localQuery, setLocalQuery] = useState(null);
     const [query, setQuery] = useState(Paris);
