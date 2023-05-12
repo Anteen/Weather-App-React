@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import savedLocationStyles from '../styles/SavedLocation.module.css'
-import sideBarStyles from '../styles/ContainerWithData.module.css'
+import savedLocationStyles from './SavedLocation.module.css'
+import sideBarStyles from './ContainerWithData.module.css'
 import VideoBackground from './VideoBackground'
 
 const MyLocation = ({ localWeather: {name, temp, details, daily}, setQuery, unactivateSidebar }) => {

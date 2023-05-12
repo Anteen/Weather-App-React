@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import styles from '../styles/SavedLocation.module.css'
-import sideBarStyles from '../styles/SideBar.module.css'
+import styles from '../components/SavedLocation.module.css'
+import sideBarStyles from './SideBar.module.css'
 import VideoBackground from './VideoBackground'
 import RemovingButton from '../assets/images/x-square.svg'
 

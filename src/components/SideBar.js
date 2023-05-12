@@ -1,4 +1,4 @@
-import styles from '../styles/SideBar.module.css'
+import styles from './SideBar.module.css'
 import Search from './Search'
 import MyLocation from './MyLocation'
 import SavedLocations from './SavedLocations'

@@ -1,4 +1,4 @@
-import styles from '../../styles/ForecastDays.module.css';
+import styles from './ForecastDays.module.css';
 import DayItems from './DayItems';
 
 const ForecastDays = ({ items }) => {

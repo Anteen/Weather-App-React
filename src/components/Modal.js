@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect, useContext } from 'react'
-import { Context } from './context'
+import { AsyncPaginate }  from 'react-select-async-paginate'
+import { Context } from '../context'
+import { GEO_API_URL, geoApi } from '../services/api'
 import reactDom from 'react-dom'
 import './Modal.css'
-import ExitButton from './assets/images/exit-button.svg'
-import { AsyncPaginate }  from 'react-select-async-paginate'
-import { GEO_API_URL, geoApi } from './services/api'
+import ExitButton from '../assets/images/exit-button.svg'
 
 const modalRootElement = document.querySelector("#modal")
 

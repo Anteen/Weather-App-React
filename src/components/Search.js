@@ -1,4 +1,4 @@
-import styles from '../styles/SideBar.module.css';
+import styles from './SideBar.module.css';
 import search from '../assets/images/vector.svg';
 
 const Search = ({ openModal }) => {

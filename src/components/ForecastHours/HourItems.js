@@ -1,4 +1,4 @@
-import styles from '../../styles/HourItems.module.css';
+import styles from './HourItems.module.css';
 import { iconFromUrl } from '../../services/api';
 
 const HourItems = ({ title, temp, icon }) => {

@@ -1,4 +1,4 @@
-import styles from '../../styles/ForecastHours.module.css';
+import styles from './ForecastHours.module.css';
 import HourItems from './HourItems';
 
 const ForecastHours = ({ items }) => {

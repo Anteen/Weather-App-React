@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Context } from './context';
 import './App.css';
-import sidebarStyles from './styles/SideBar.module.css'
-import containerStyles from './styles/ContainerWithData.module.css'
+import sidebarStyles from './components/SideBar.module.css' 
+import containerStyles from './components/ContainerWithData.module.css'
 import ContainerWithData from './components/ContainerWithData.js';
-import Modal from './Modal';
+import Modal from './components/Modal';
 import formatedWeatherData from './services/api';
 import Preloader from './components/Preloader';
 import constants from '../src/constants/constants'
-const {Paris, units} = constants
+const { Paris, units } = constants
 
 const App = () => {
     const [active, setActive] = useState(false);

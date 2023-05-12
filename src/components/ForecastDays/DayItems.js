@@ -1,5 +1,5 @@
 import Line from '../../assets/images/webp/dn-line.webp';
-import styles from '../../styles/DayItems.module.css';
+import styles from './DayItems.module.css';
 import { iconFromUrl } from '../../services/api';
 
 const DayItems = (items) => {

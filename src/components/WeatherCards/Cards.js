@@ -1,5 +1,5 @@
 // import '../../styles/Cards.css';
-import styles from '../../styles/Cards.module.css'
+import styles from './Cards.module.css'
 import RLine from '../../assets/images/webp/rainbow-line.webp';
 import SunMax from '../../assets/images/webp/sun-max.webp';
 import Humidity from '../../assets/images/webp/humidity.webp';

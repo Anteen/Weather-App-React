@@ -1,4 +1,4 @@
-import styles from '../styles/Header.module.css';
+import styles from './Header.module.css';
 
 const Header = ({ weather, items }) => {
     const [weatherArray] = items;

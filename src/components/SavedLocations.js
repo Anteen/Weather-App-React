@@ -1,5 +1,5 @@
 import SavedLocation from "./SavedLocation"
-import styles from '../styles/SavedLocation.module.css'
+import styles from './SavedLocation.module.css'
 
 const SavedLocations = ({setQuery, savedCitiesWeather, unactivateSidebar}) => {
     
