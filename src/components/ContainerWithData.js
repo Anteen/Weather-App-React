@@ -1,35 +1,49 @@
-import { useContext } from 'react'
-import { Context } from '../context'
-import styles from './ContainerWithData.module.css'
-import SideBar from './SideBar'
-import Header from './Header'
-import ForecastDays from './ForecastDays/ForecastDays'
-import ForecastHours from './ForecastHours/ForecastHours'
-import Cards from './WeatherCards/Cards'
-import VideoBackground from './VideoBackground'
-import BurgerButton from '../assets/images/align-justify-svgrepo-com.svg'
-import CloseButton from '../assets/images/x-circle-svgrepo-com.svg'
+import { useContext } from 'react';
+import { Context } from '../context';
+import styles from './ContainerWithData.module.css';
+import sidebarStyles from './SideBar.module.css' 
+import SideBar from './SideBar';
+import Header from './Header';
+import ForecastDays from './ForecastDays/ForecastDays';
+import ForecastHours from './ForecastHours/ForecastHours';
+import Cards from './WeatherCards/Cards';
+import VideoBackground from './VideoBackground';
+import BurgerButton from '../assets/images/align-justify-svgrepo-com.svg';
+import CloseButton from '../assets/images/x-circle-svgrepo-com.svg';
 
-
-const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSidebarClass, savedCitiesWeather, burgerButtonClass}) => {
-    
+const ContainerWithData = ({
+    weather,
+    localWeather,
+    openModal,
+    setQuery,
+    activeSidebarClass,
+    savedCitiesWeather,
+    onClose,
+}) => {
     const { change, adaptiveChange } = useContext(Context);
+
+    const closeModalAndSideBAr = () => {
+        change(activeSidebarClass);
+        onClose();
+    };
 
     return (
         <div className={styles.dataContainer}>
             <button
                 className={styles.burgerButton}
-                onClick={() => change(activeSidebarClass)}
+                onClick={closeModalAndSideBAr}
             >
-                {burgerButtonClass === styles.burgerButton ? (
+                {activeSidebarClass === sidebarStyles.sidebarWrapper ? (
                     <img
                         src={BurgerButton}
                         className={styles.burgerButtonSvg}
+                        alt="open menu"
                     />
                 ) : (
                     <img
                         src={CloseButton}
                         className={styles.burgerButtonSvg}
+                        alt="close menu"
                     />
                 )}
             </button>
@@ -49,14 +63,15 @@ const ContainerWithData = ({weather, localWeather, openModal, setQuery, activeSi
                         openModal={openModal}
                         localWeather={localWeather}
                         savedCitiesWeather={savedCitiesWeather}
-                        activeSideBarClass={activeSidebarClass}
-                        unactivateSidebar={() => adaptiveChange(activeSidebarClass)}
+                        activeSidebarClass={activeSidebarClass}
+                        unactivateSidebar={() =>
+                            adaptiveChange(activeSidebarClass)
+                        }
                     />
                 </>
             )}
         </div>
     );
-}
+};
 
-
-export default ContainerWithData
+export default ContainerWithData;

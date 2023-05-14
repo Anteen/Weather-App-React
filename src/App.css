@@ -1,4 +1,9 @@
 .App {
-    max-width: 1920px;
-    margin: auto;
+    height: 100vh
+}
+
+@media screen and (max-width: 1700px) {
+    .App {
+        height: unset
+    }
 }

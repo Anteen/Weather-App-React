@@ -3,10 +3,10 @@ import Search from './Search'
 import MyLocation from './MyLocation'
 import SavedLocations from './SavedLocations'
 
-const SideBar = ({localWeather, activeSideBarClass, openModal, setQuery, unactivateSidebar, savedCitiesWeather}) => {
+const SideBar = ({localWeather, activeSidebarClass, openModal, setQuery, unactivateSidebar, savedCitiesWeather}) => {
 
     return (
-        <nav className={activeSideBarClass}>
+        <nav className={activeSidebarClass}>
             <Search openModal={openModal} />
             <div className={styles.locationsContainer}>
                 {localWeather.name && (

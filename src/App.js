@@ -76,10 +76,10 @@ const App = () => {
     useEffect (() => {
         const fetchWeather = async () => {
           const tempDataArr = []
-          for (let i=0; i<savedLocationCoords.length; i++) {
-            const data = await formatedWeatherData({...savedLocationCoords[i], units})
-            tempDataArr.push(data)
-          }
+            await Promise.all(savedLocationCoords.map(async (location) => {
+                const data = await formatedWeatherData({...location, units})
+                tempDataArr.push(data)
+            }))
           setSavedCitiesWeather([...tempDataArr])
           setLoading(false)
         }
@@ -107,6 +107,8 @@ const App = () => {
                     localWeather={localWeather}
                     activeSidebarClass={activeSidebarClass}
                     burgerButtonClass={burgerButtonClass}
+                    onClose={() => setActive(false)}
+
                 />
                 <Modal
                     open={active}

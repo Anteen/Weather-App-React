@@ -29,25 +29,25 @@ const Cards = ({ weather }) => {
         <div className={styles.cardContainer}>
             <div className={styles.cardWrapper}>
                 <div className={styles.header}>
-                    <img src={SunMax} />
+                    <img src={SunMax} alt='sunMax'/>
                     <p className={styles.title}>uv-index</p>
                 </div>
                 <p className={styles.degree}>12</p>
                 <p className={styles.subtitle}>Middle</p>
-                <img src={RLine} className={styles.rainbowLine} />
+                <img src={RLine} className={styles.rainbowLine} alt='rainbowLine'/>
                 <p className={styles.description}>
                     Middle for the rest of the day.
                 </p>
             </div>
             <div className={styles.cardWrapper}>
                 <div className={styles.header}>
-                    <img src={Sunrise} />
+                    <img src={Sunrise} alt='sunrise'/>
                     <p className={styles.title}>sunrise</p>
                 </div>
                 <p className={styles.degree}>11:28 AM</p>
                 <div className={styles.imgWrapper}>
-                    <img src={sunriseVector} className={styles.sunriseVector} />
-                    <img src={sunriseEllipse} className={styles.sunriseEllipse} />
+                    <img src={sunriseVector} className={styles.sunriseVector} alt='sunrise'/>
+                    <img src={sunriseEllipse} className={styles.sunriseEllipse} alt='sunrise'/>
                 </div>
                 <p className={styles.description}>
                     Sunrise: {timeConverter()} AM
@@ -55,11 +55,11 @@ const Cards = ({ weather }) => {
             </div>
             <div className={styles.cardWrapper}>
                 <div className={styles.header}>
-                    <img src={Wind} />
+                    <img src={Wind} alt='Wind'/>
                     <p className={styles.title}>wind</p>
                 </div>
                 <div className={styles.speedWrapper}>
-                    <img src={Compas} className={styles.compasWrapper} />
+                    <img src={Compas} className={styles.compasWrapper} alt='Compas'/>
                     <div className={styles.speedText}>
                         <p className={styles.speedTitle}>
                             {Math.round(weather.speed)}
@@ -70,7 +70,7 @@ const Cards = ({ weather }) => {
             </div>
             <div className={styles.cardWrapper}>
                 <div className={styles.header}>
-                    <img src={FeelsLike} />
+                    <img src={FeelsLike} alt='FeelsLike'/>
                     <p className={styles.title}>feels like</p>
                 </div>
                 <p className={styles.degree}>
@@ -82,7 +82,7 @@ const Cards = ({ weather }) => {
             </div>
             <div className={styles.cardWrapper}>
                 <div className={styles.header}>
-                    <img src={Humidity} />
+                    <img src={Humidity} alt='Humidity'/>
                     <p className={styles.title}>humidity</p>
                 </div>
                 <p className={styles.degree}>{weather.humidity}%</p>
@@ -92,7 +92,7 @@ const Cards = ({ weather }) => {
             </div>
             <div className={styles.cardWrapper}>
                 <div className={styles.header}>
-                    <img src={visibility} />
+                    <img src={visibility} alt='visibility'/>
                     <p className={styles.title}>visibility</p>
                 </div>
                 <p className={styles.degree}>

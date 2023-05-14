@@ -51,6 +51,7 @@ const SavedLocation = ({location: {name, temp, details, lat, lon, daily}, setQue
                         <img
                             src={RemovingButton}
                             className={styles.locationButtonImage}
+                            alt='remove city'
                         />
                     </button>
                     <VideoBackground description={details} />
