@@ -1,6 +1,7 @@
-import '../styles/Preloader.css'
+import './Preloader.css'
 
 const Preloader = () => {
+    
     return (
         <div className="grid">
             <div className="cup">

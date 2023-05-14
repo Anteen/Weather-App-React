@@ -1,13 +1,13 @@
-import '../styles/SideBar.css'
-import search from '../assets/images/Vector.svg'
+import styles from './SideBar.module.css';
+import search from '../assets/images/vector.svg';
 
-const Search = ({openModal}) => {
+const Search = ({ openModal }) => {
     return (
-        <button className="search-button" onClick={() => openModal(true)}>
-            <img src={search} className="search-icon"/>
+        <button className={styles.searchButton} onClick={() => openModal(true)}>
+            <img src={search} className={styles.searchIcon} alt='search' /> 
             Search for a city or airport
-        </button> 
-    )
-}
+        </button>
+    );
+};
 
-export default Search
+export default Search;

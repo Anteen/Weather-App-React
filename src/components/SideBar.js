@@ -1,19 +1,31 @@
-import '../styles/SideBar.css'
+import styles from './SideBar.module.css'
 import Search from './Search'
 import MyLocation from './MyLocation'
 import SavedLocations from './SavedLocations'
 
-const SideBar = ({localWeather, activeSideBar, openModal, setQuery, unactivate, localQuery, savedWeather, savedQuery}) => {
+const SideBar = ({localWeather, activeSidebarClass, openModal, setQuery, unactivateSidebar, savedCitiesWeather}) => {
 
     return (
-        <nav className={activeSideBar}>
-            <Search openModal={openModal}/>
-            <div className='locations-container'>
-                {localQuery !== null && <MyLocation  setQuery={setQuery} localWeather={localWeather} unactivate={unactivate}/> }
-                {savedQuery !== null && <SavedLocations setQuery={setQuery} savedWeather={savedWeather} unactivate={unactivate}/> }
+        <nav className={activeSidebarClass}>
+            <Search openModal={openModal} />
+            <div className={styles.locationsContainer}>
+                {localWeather.name && (
+                    <MyLocation
+                        setQuery={setQuery}
+                        localWeather={localWeather}
+                        unactivateSidebar={unactivateSidebar}
+                    />
+                )}
+                {savedCitiesWeather && (
+                    <SavedLocations
+                        setQuery={setQuery}
+                        savedCitiesWeather={savedCitiesWeather}
+                        unactivateSidebar={unactivateSidebar}
+                    />
+                )}
             </div>
         </nav>
-    )
+    );
 }
 
 export default SideBar

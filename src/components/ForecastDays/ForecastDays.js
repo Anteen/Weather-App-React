@@ -1,14 +1,15 @@
-import '../../styles/ForecastDays.css'
-import Day from './Day'
+import styles from './ForecastDays.module.css';
+import DayItems from './DayItems';
 
-const ForecastDays = ({items}) => {
+const ForecastDays = ({ items }) => {
     return (
-        <div className='forecast-days__wrapper' >
-            <h2 className='forecast-days-title'>8-DAY FORECAST</h2>
+        <div className={styles.forecastDaysWrapper}>
+            <h2 className={styles.title}>8-DAY FORECAST</h2>
             {items.map((item, index) => {
-            return <Day key={index} items={items} {...item} />}) }
-            <Day />
+                return <DayItems key={index} items={items} {...item} />;
+            })}
+            <DayItems />
         </div>
-    )
-}
-export default ForecastDays
+    );
+};
+export default ForecastDays;

@@ -1,86 +1,96 @@
-.Container {
-    width: 100%;
-    height: 100vh;
+.dataContainer {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    position: relative;
+
+    width: 100%;
+    height: 100%;
 }
-.background-video {
-    display: block;
+
+.backgroundVideo {
     position: absolute;
+    z-index: -1;
     top: 0;
     left: 0;
+
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
 }
-.main-info {
+
+.mainInfo {
     margin: auto;
     padding: 15px 0;
 }
-.info-table-wrapper {
-    margin: 0 auto;
-    width: 95%;
-    /* padding: 34px 19px 34px 40px; */
-    /* padding-top: 4px; */
-    /* display: flex;
-    justify-content: space-between;
-    gap: 37px;
-    flex: 1 1 auto;
-    height: 50%; */
+
+.infoTableWrapper {
     display: grid;
+    width: 95%;
+    height: 98%;
+    margin: 0 auto;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, auto);
     gap: 20px 30px;
-    height: 98%;
 }
-.button-open-sidebar {
-    width: 50px;
-    height: 50px;
+
+.burgerButton,
+.burgerButtonActive {
     position: absolute;
+    z-index: 10000;
     top: 10px;
     left: 10px;
+    display: none;
+
+    width: 50px;
+    height: 50px;
     padding: 0;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0);
     border: 0;
-    display: none;
+    background-color: rgba(255, 255, 255, 0);
 }
-.button-open-sidebar__svg {
+
+.burgerButtonSvg {
     display: block;
     margin: auto;
     fill: white;
 }
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #929292;
     border-radius: 30px;
-  }
+    background: #929292;
+}
+
 ::-webkit-scrollbar-corner {
     width: 0;
     height: 0;
 }
+
 @media screen and (max-width: 1410px) {
-    .button-open-sidebar {
+    .burgerButton {
         display: block;
     }
 }
+
 @media screen and (max-height: 720px) {
     .Container {
         height: 100%;
     }
-} 
+}
+
 @media screen and (max-width: 605px) {
-    .main-info {
+    .mainInfo {
+        width: 100vw;
         padding: 25px 0;
     }
-    .info-table-wrapper {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, auto);
-        column-gap: 0;
-    } 
+
+    .infoTableWrapper {
+        display: flex;
+        flex-direction: column;
+    }
 }

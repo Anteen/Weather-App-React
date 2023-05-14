@@ -1,0 +1,58 @@
+.hourItemsWrapper:first-child>.time {
+    position: relative;
+    max-width: 39.91px;
+    color: #373c4200;
+}
+
+.hourItemsWrapper:first-child>.time::before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    content: 'Now';
+    text-align: center;
+    color: #373c42;
+}
+
+.hourItemsWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time {
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 20px;
+    color: #373c42;
+}
+
+.degree {
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: .005em;
+    color: #373c42;
+}
+
+.weatherAppIcons {
+    width: 40px;
+    height: 40px;
+}
+
+@media screen and (max-width: 605px) {
+    .time {
+        font-size: 17px;
+    }
+
+    .degree {
+        font-size: 22px;
+    }
+
+    .hourItemsWrapper {
+        gap: 10px;
+    }
+}
